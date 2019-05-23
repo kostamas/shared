@@ -6,8 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build-lib": "ng build shared-ui-components-lib",
+    "publish-lib": "cd dist/shared-ui-components-lib && npm publish"
   },
   "private": true,
   "dependencies": {

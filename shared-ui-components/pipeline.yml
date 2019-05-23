@@ -1,0 +1,35 @@
+
+pipeline:
+  name: common-back-components-lib
+  packageType: zip
+  useNewEnvironments: true
+  profiles: 
+    - AWS
+  generateDevBoard: true 
+  stages:
+    - name: PUBLISH
+      jobs:
+        - name: BUILD
+          type: npm
+          profiles: 
+            - AWS
+          showName: Build the shared UI components library
+          jenkinsAgentTags: AWS
+          command: run build-lib
+          datadog:
+            tags:
+              - pipeline=common-back-components-lib
+              - stage=BUILD
+
+        - name: PUBLISH
+          type: npm
+          nodejsVersion: 10.4.0
+          profiles: 
+            - AWS
+          showName: Publish the shared UI components library to Nexus
+          jenkinsAgentTags: AWS
+          command: run publish-lib
+          datadog:
+            tags:
+              - pipeline=common-back-components-lib
+              - stage=PUBLISH
