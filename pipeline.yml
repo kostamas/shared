@@ -1,0 +1,259 @@
+
+pipeline:
+  name: common-back-components-lib
+  packageType: zip
+  useNewEnvironments: true
+  profiles:
+  - AWS
+  generateDevBoard: true
+  stages:
+
+  - name: PUBLISH
+    jobs:
+
+    - name: BUILD
+      type: npm
+      profiles:
+      - AWS
+      showName: Build the shared UI components library
+      jenkinsAgentTags: AWS
+      command: run build-lib
+      datadog:
+      tags:
+      - pipeline=common-back-components-lib
+      - stage=BUILD
+
+    - name: PUBLISH
+      type: npm
+      nodejsVersion: 10.4.0
+      profiles:
+      - AWS
+      showName: Publish the shared UI components library to Nexus
+      jenkinsAgentTags: AWS
+      command: run publish-lib
+      datadog:
+      tags:
+      - pipeline=common-back-components-lib
+      - stage=PUBLISH
+
+      #        - name: CODE_ANALYSIS
+      #         type: npm
+      #          profiles:
+      #            - ON_PREMISE
+      #          showName: Code analysis
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: code_analysis
+
+      #        - name: PACKAGE
+      #          type: npm
+      #          profiles:
+      #            - ON_PREMISE
+      #          showName: Create RPM
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: run package --version ${RPM_VERSION} --release ${RPM_RELEASE}
+      #          sharedArtifacts:
+      #            - UPLOAD_ARTIFACT_DEV_ON_PREMISE_REPO:
+      #              - 'brass_build/RPMS/noarch/common-back-components-lib-${RPM_VERSION}-${RPM_RELEASE}.noarch.rpm'
+
+
+      #   - name: DEV_ON_PREMISE
+      #      jobs:
+      #        - name: UPLOAD_ARTIFACT_DEV_ON_PREMISE_REPO
+      #          type: nexus
+      #          profiles: ON_PREMISE
+      #          showName: Upload ZIP to DEV Nexus
+      #          nexusRepositoryId: dev-hbg-bt-madrid-backoffice-services-repo
+      #          environment: shared-hbg-bt-madrid
+      #          jenkinsAgentTags: ON_PREMISE
+
+      #        - name: DEPLOY_APPLICATION_DEV_ON_PREMISE
+      #          type: rundeck
+      #          profiles: ON_PREMISE
+      #          showName: Deploy application
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command:
+      #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
+      #            jobOptions:
+      #            - environment=devbtmadrid
+      #            - service_name=common-back-components-lib
+      #            - bucket_name=common-back-components-lib-bucket
+      #            - version=${BUILD_VERSION}
+
+      #        - name: E2E_SMOKE_TEST_DEV_ON_PREMISE
+      #          type: npm
+      #         profiles: ON_PREMISE
+      #          showName: End to end smoke tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_smoke_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+      #        - name: E2E_REGRESSION_TEST_DEV_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #         showName: End to end regression tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_regression_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+
+
+      #    - name: TEST_ON_PREMISE
+      #      jobs:
+      #        - name: UPLOAD_ARTIFACT_TEST_ON_PREMISE_REPO
+      #          type: nexus
+      #          profiles: ON_PREMISE
+      #          showName: Upload ZIP to TEST Nexus
+      #          nexusRepositoryId: test-hbg-bt-madrid-backoffice-services-repo
+      #         environment: shared-hbg-bt-madrid
+      #          jenkinsAgentTags: ON_PREMISE
+
+      #        - name: DEPLOY_APPLICATION_TEST_ON_PREMISE
+      #          type: rundeck
+      #          profiles: ON_PREMISE
+      #          showName: Deploy application
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command:
+      #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
+      #            jobOptions:
+      #            - environment=testbtmadrid
+      #            - service_name=common-back-components-lib
+      #            - bucket_name=common-back-components-lib-bucket
+      #            - version=${BUILD_VERSION}
+
+      #        - name: E2E_SMOKE_TEST_TEST_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #          showName: End to end smoke tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_smoke_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+      #        - name: E2E_REGRESSION_TEST_TEST_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #          showName: End to end regression tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_regression_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+
+
+      #    - name: STAGE_ON_PREMISE
+      #      jobs:
+      #        - name: UPLOAD_ARTIFACT_STAGE_ON_PREMISE_REPO
+      #          type: nexus
+      #          profiles: ON_PREMISE
+      #          showName: Upload ZIP to STAGE Nexus
+      #          nexusRepositoryId: stage-hbg-bt-madrid-backoffice-services-repo
+      #          environment: shared-hbg-bt-madrid
+      #          jenkinsAgentTags: ON_PREMISE
+
+      #        - name: DEPLOY_APPLICATION_STAGE_ON_PREMISE
+      #          type: rundeck
+      #          profiles: ON_PREMISE
+      #          showName: Deploy application
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command:
+      #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
+      #            jobOptions:
+      #            - environment=stagebtmadrid
+      #            - service_name=common-back-components-lib
+      #            - bucket_name=common-back-components-lib-bucket
+      #           - version=${BUILD_VERSION}
+
+      #        - name: E2E_SMOKE_TEST_STAGE_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #          showName: End to end smoke tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_smoke_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+      #        - name: E2E_REGRESSION_TEST_STAGE_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #          showName: End to end regression tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_regression_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+
+
+      #    - name: LIVE_ON_PREMISE
+      #      jobs:
+      #        - name: UPLOAD_ARTIFACT_LIVE_ON_PREMISE_REPO
+      #          type: nexus
+      #          profiles: ON_PREMISE
+      #          showName: Upload ZIP to LIVE Nexus
+      #          nexusRepositoryId: live-hbg-bt-madrid-backoffice-services-repo
+      #          environment: shared-hbg-bt-madrid
+      #          jenkinsAgentTags: ON_PREMISE
+      #        - name: RDM_APPROVAL_LIVE_ON_PREMISE
+      #          type: rdm_approval
+      #          profiles: ON_PREMISE
+      #          showName: RDM approval
+      #          jenkinsAgentTags: ON_PREMISE
+      #        - name: DEPLOY_APPLICATION_LIVE_ON_PREMISE
+      #          type: rundeck
+      #          profiles: ON_PREMISE
+      #          showName: Deploy application
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command:
+      #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
+      #            jobOptions:
+      #            - environment=livebtmadrid
+      #            - service_name=common-back-components-lib
+      #            - bucket_name=common-back-components-lib-bucket
+      #            - version=${BUILD_VERSION}
+
+      #        - name: E2E_SMOKE_TEST_LIVE_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #          showName: End to end smoke tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_smoke_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+      #        - name: E2E_REGRESSION_TEST_LIVE_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #          showName: End to end regression tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_regression_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+
+
+      #   - name: INT_ON_PREMISE
+      #      jobs:
+      #        - name: UPLOAD_ARTIFACT_INT_ON_PREMISE_REPO
+      #          type: nexus
+      #          profiles: ON_PREMISE
+      #          showName: Upload ZIP to INT Nexus
+      #          nexusRepositoryId: int-hbg-bt-madrid-backoffice-services-repo
+      #          environment: shared-hbg-bt-madrid
+      #          jenkinsAgentTags: ON_PREMISE
+      #        - name: RDM_APPROVAL_INT_ON_PREMISE
+      #          type: rdm_approval
+      #          profiles: ON_PREMISE
+      #         showName: RDM approval
+      #          jenkinsAgentTags: ON_PREMISE
+      #        - name: DEPLOY_APPLICATION_INT_ON_PREMISE
+      #         type: rundeck
+      #          profiles: ON_PREMISE
+      #          showName: Deploy application
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command:
+      #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
+      #            jobOptions:
+      #            - environment=intbtmadrid
+      #            - service_name=common-back-components-lib
+      #            - bucket_name=common-back-components-lib-bucket
+      #            - version=${BUILD_VERSION}
+
+      #        - name: E2E_SMOKE_TEST_INT_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #          showName: End to end smoke tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_smoke_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
+      #       - name: E2E_REGRESSION_TEST_INT_ON_PREMISE
+      #          type: npm
+      #          profiles: ON_PREMISE
+      #          showName: End to end regression tests
+      #          jenkinsAgentTags: ON_PREMISE
+      #          command: e2e_regression_test --params.host=[HOST_URL] --seleniumAddress=http://10.162.2.130:4444/wd/hub
+
