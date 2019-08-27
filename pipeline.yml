@@ -15,7 +15,7 @@ pipeline:
           type: npm
           profiles:
             - AWS
-          showName: Build the shared UI components library
+          showName: Build the Shared UI components library
           jenkinsAgentTags: AWS
           command: run build-lib
           datadog:
