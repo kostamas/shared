@@ -6,8 +6,8 @@
     "@angular/core": "^7.2.0"
   },
   "repository": "bitbucket service git url",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "publishConfig": {
-    "registry": "http://nexus.hotelbeds/nexus/content/repositories/hotelbeds-npm-releases-repository/"
+    "registry": "http://10.185.71.124:8081/nexus/content/groups/hotelbeds-npm-repository/"
   }
 }
