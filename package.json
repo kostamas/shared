@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "build-lib": "ng build shared-ui-components-lib",
-    "publish-lib": "cd ../../common-back-components-lib_BUILD/project/dist/shared-ui-components-lib && npm publish"
+    "publish-lib": "pwd && cd ../../common-back-components-lib_BUILD/project/dist/shared-ui-components-lib && npm publish"
   },
   "private": true,
   "dependencies": {
