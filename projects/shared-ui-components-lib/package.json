@@ -8,6 +8,6 @@
   "repository": "bitbucket service git url",
   "license": "MIT",
   "publishConfig": {
-    "registry": "http://10.185.71.124:8081/nexus/content/groups/hotelbeds-npm-repository/"
+    "registry": "http://10.185.71.124:8081/nexus/content/repositories/hotelbeds-npm-releases-repository/"
   }
 }
