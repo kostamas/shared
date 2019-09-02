@@ -17,7 +17,7 @@ pipeline:
             - AWS
           showName: Build the Shared UI components library
           jenkinsAgentTags: AWS
-          command: run build
+          command: run build-lib
           datadog:
           tags:
               - pipeline=common-back-components-lib
