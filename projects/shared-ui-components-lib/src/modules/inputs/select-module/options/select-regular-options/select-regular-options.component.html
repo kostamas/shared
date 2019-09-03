@@ -1,0 +1,11 @@
+<div class="select-regular-options" #optionsWrapper>
+  <div class="option-row cursor-pointer"
+			 *ngFor="let selectItem of selectList; let indx = index"
+			 [ngClass]="{'suggested-option': suggestedIndex === indx}"
+			 (click)="selectValue(indx)">
+    <div class="option-text">
+      <app-svg-icon *ngIf="selectItem.svg" [svg]="selectItem.svg"></app-svg-icon>
+      <label class="click-able" >{{data.inputTextHandler ? data.inputTextHandler(selectItem) : selectItem.name}}</label>
+    </div>
+  </div>
+</div>

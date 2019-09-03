@@ -1,0 +1,10 @@
+<div class="select-input cursor-pointer"
+		 [ngClass]="[validationStatus.isValid === false ? 'invalid' : '', isDisabled ? 'is-disabled' : '', isOptionsOpen ? 'options-opened' : '']"
+		 (focus)="selectInputClickHandler()"  (blur)="blurHandler()" [tabIndex]="tabIndex && !isDisabled ? tabIndex : ''" #selectInput>
+	<div class="select-input-title" #title appEllipseDetector [fontSize]="16" [paddingLeft]="9"></div>
+	<div class="triangle-error" app-tooltip [tooltipTitle]="validationStatus.message || 'Error'">!</div>
+	<app-svg-icon [svg]="SVG_ICONS.arrowDown"></app-svg-icon>
+	<div class="options-wrapper" #optionsWrapperElement>
+		<div #optionsContainer></div>
+	</div>
+</div>

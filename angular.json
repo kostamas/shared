@@ -15,26 +15,6 @@
             "tsConfig": "projects/shared-ui-components-lib/tsconfig.lib.json",
             "project": "projects/shared-ui-components-lib/ng-package.json"
           }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/shared-ui-components-lib/src/test.ts",
-            "tsConfig": "projects/shared-ui-components-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/shared-ui-components-lib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/shared-ui-components-lib/tsconfig.lib.json",
-              "projects/shared-ui-components-lib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
