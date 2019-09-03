@@ -1,0 +1,164 @@
+@import "./shared-mixins";
+
+.cursor-pointer:not(.disabled) {
+	cursor: pointer !important;
+}
+
+.hover-opacity:hover {
+	opacity: 0.8 !important;
+}
+
+.animate {
+	transition: 0.2s !important;
+}
+
+.click-able:not(.disabled) {
+	cursor: pointer !important;
+
+	&.underline {
+		&:hover {
+			text-decoration: underline !important;
+		}
+	}
+
+	&:active {
+		opacity: 1;
+	}
+}
+
+.disabled {
+	background-color: $color45 !important;
+	border: 1px solid $color81 !important;
+	color: $color46 !important;
+	pointer-events: none;
+}
+
+.click-able-red:not(.disabled) {
+	cursor: pointer !important;
+
+	&:active {
+		opacity: 1;
+	}
+
+	&:hover {
+		opacity: 0.8 !important;
+		color: $color48 !important;
+		text-decoration: underline !important;
+		text-decoration-color: $color48 !important;
+	}
+}
+
+.hb-input {
+	border: 1px solid $color1;
+	box-sizing: border-box;
+	padding: 0 6px 0 9px;
+	border-radius: 3px;
+	height: 36px;
+}
+
+.hb-invalid-input {
+	border: 1px solid red;
+	outline: none;
+}
+
+.triangle-error {
+	@include position(absolute, 10px, 30px);
+	@include dimension(0, 0);
+	@include flex(center);
+	position: absolute;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 17px solid $color43;
+	content: '!';
+	color: white;
+	line-height: 19px;
+	font-size: 13px;
+}
+
+///////////////////////////      border 0      ////////////////////
+.border-right-0 {
+	border-right: 0;
+}
+
+.border-left-0 {
+	border-left: 0;
+}
+
+.border-top-0 {
+	border-top: 0;
+}
+
+.border-bottom-0 {
+	border-bottom: 0;
+}
+
+///////////////////////////      buttons      ////////////////////
+
+.hb-button, .hb-button-blue {
+	@include hb-button($color20, $white, $color20);
+}
+
+.hb-button-white {
+	@include hb-button($white, $color20, $color20);
+}
+
+///////////////////////////      table      ////////////////////
+
+.hb-table-row {
+	@include flex(null, center);
+	margin-bottom: 8px;
+}
+
+.hb-table-column {
+	@include flex(null, center);
+	border: 1px solid $color1;
+	box-sizing: border-box;
+	padding-left: 10px;
+	height: 36px;
+	font-size: 16px;
+}
+
+.hb-table-header {
+	background: linear-gradient(to bottom, #ecf0f1 32%, #e0eaec 67%);
+	font-weight: bold;
+}
+
+///////////////////////////      scrollbar      ////////////////////
+
+.scrollbar-style {
+	&::-webkit-scrollbar {
+		height: 20px;
+		width: 7px;
+		background-color: $color66;
+		border-radius: 100px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $color63;
+		-webkit-border-radius: 1ex;
+	}
+}
+
+///////////////////////////      errors      ////////////////////
+
+.contract-triangle-error {
+	@include dimension(0, 0);
+	@include flex(center);
+	@include position(absolute, 10px, 11px);
+	position: absolute;
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 17px solid $color43;
+	content: '!';
+	color: white;
+	line-height: 19px;
+	font-size: 13px;
+}
+
+.ng-invalid.ng-touched.hb-input {
+	background-color: $color42;
+	border: 1px solid red !important;
+	outline: none;
+	z-index: 2;
+}
+

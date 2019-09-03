@@ -7,8 +7,8 @@ import {SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AbstractControl} from '@angular/forms';
 import {isEmpty} from '../../../utils/jsUtils';
-import {ICalendarClickPosition, IFromTo} from '../../../types/celendar';
-import {DATE_FORMAT} from '../../../services/shared-constants.service';
+import {ICalendarClickPosition, IFromTo} from '../../../types/calendar';
+import {DATE_FORMAT} from '../../../constants/shared.constant';
 
 @Component({
 	selector: 'app-multi-date-picker',

@@ -13,8 +13,8 @@ import {SelectInputService} from '../../select-input.service';
 export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
 	public selectList: ISelectItem[];
 	private stringToSearch: string = '';
-	private suggestedIndex: number = -1;
-	private timeout: NodeJS.Timer = null;
+	public suggestedIndex: number = -1;
+	private timeout: number = null;
 	private optionHeight: number = 39;
 
 	@Input('data') data: any;

@@ -2,7 +2,7 @@ import {isDefineAndNotNull, undefinedAndNullToEmptyString} from '../../utils/jsU
 import {isNumber} from 'util';
 
 
-export const displayFormatNameAndIdOrEmptyString = (name: string, id: string | number): string => {
+export const displayFormatNameAndIdOrEmptyString = (name: string, id: any): string => {
 	let idName: string = '';
 	if (isNumber(id)) {
 		idName = isDefineAndNotNull(id) ? ` (${id})` : '';

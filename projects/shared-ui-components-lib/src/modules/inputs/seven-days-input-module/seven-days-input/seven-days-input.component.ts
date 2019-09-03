@@ -22,7 +22,7 @@ export class SevenDaysInputComponent implements OnInit, OnDestroy, OnChanges {
 	public componentInputs: any = {};
 	public multiSelectInputs: any;
 	public isSingleSelection: boolean = true;
-	private sevenDaysKeys: string[];
+  public sevenDaysKeys: string[];
 	private subscriptionsArray: any[] = [];
 
 	@Input() sevenDaysMainList: ISevenDaysInput;

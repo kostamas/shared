@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
-import {OneContractService} from '../../../../components/one-contract/one-contract.service';
 import {isRangeValue, preventPasteValue} from '../input-utils';
 
 @Component({
@@ -25,7 +24,7 @@ export class InputWithSymbolComponent {
 
 	@Output() inputValueChange: EventEmitter<string> = new EventEmitter();
 
-	constructor(public oneContractService: OneContractService) {
+	constructor() {
 	}
 
 	ngModelChange(): void {

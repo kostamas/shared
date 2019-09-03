@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Subject} from 'rxjs';
 import * as moment from 'moment';
-import {DATE_FORMAT} from '../../../services/shared-constants.service';
+import {DATE_FORMAT} from '../../../constants/shared.constant';
 
 @Injectable({
 	providedIn: 'root'

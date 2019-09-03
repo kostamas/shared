@@ -14,7 +14,7 @@ import {CalendarDatePickerService} from '../calendarDatePicker/calendarDatePicke
 import * as moment from 'moment';
 import {IValidationStatus} from '../../../types/ISelect';
 import {Subject} from 'rxjs';
-import {DATE_FORMAT} from '../../../services/shared-constants.service';
+import {DATE_FORMAT} from '../../../constants/shared.constant';
 
 @Component({
 	selector: 'app-date-input',

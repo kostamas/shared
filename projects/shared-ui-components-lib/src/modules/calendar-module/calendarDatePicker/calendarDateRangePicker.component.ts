@@ -7,8 +7,8 @@ import {filter, switchMap, takeUntil, tap} from 'rxjs/operators';
 import {CalendarDatePickerService} from './calendarDatePicker.service';
 import {isDefineAndNotNull} from '../../../utils/jsUtils';
 import {ISvgIcons, SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
-import {ICalendarClickPosition, ICalendarDay, IFromTo} from '../../../types/celendar';
-import {DATE_FORMAT} from '../../../services/shared-constants.service';
+import {ICalendarClickPosition, ICalendarDay, IFromTo} from '../../../types/calendar';
+import {DATE_FORMAT} from '../../../constants/shared.constant';
 
 @Component({
 	selector: 'app-calendar-date-range-picker',

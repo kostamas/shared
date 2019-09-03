@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CalendarDatePickerService} from '../calendarDatePicker/calendarDatePicker.service';
-import {IFromTo} from '../../../types/celendar';
+import {IFromTo} from '../../../types/calendar';
 
 @Component({
 	selector: 'app-multi-date-picker-wrapper',
