@@ -146,12 +146,12 @@ export class AutoSuggestInputComponent implements OnInit, AfterViewInit, OnDestr
 		}
 	}
 
-	@HostListener('window:resize', ['$event'])
+	@HostListener('window:resize')
 	initializeLeftPane(): void {
 		this.closeModal();
 	}
 
-	@HostListener('document:click', ['$event'])
+	@HostListener('document:click')
 	clickout(event: any): void {
 		const {inputElement, resultContainer} = this;
 		if (!inputElement.nativeElement.contains(event.target) && !resultContainer.nativeElement.contains(event.target)) {

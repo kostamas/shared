@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Subject} from 'rxjs';
-import * as moment from 'moment';
+import * as momentNs from 'moment';
+const moment = momentNs;
 import {DATE_FORMAT} from '../../../constants/shared.constant';
 
 @Injectable({

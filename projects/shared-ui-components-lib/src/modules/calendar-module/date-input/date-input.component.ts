@@ -11,7 +11,8 @@ import {
 } from '@angular/core';
 import {ISvgIcons, SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 import {CalendarDatePickerService} from '../calendarDatePicker/calendarDatePicker.service';
-import * as moment from 'moment';
+import * as momentNs from 'moment';
+const moment = momentNs;
 import {IValidationStatus} from '../../../types/ISelect';
 import {Subject} from 'rxjs';
 import {DATE_FORMAT} from '../../../constants/shared.constant';

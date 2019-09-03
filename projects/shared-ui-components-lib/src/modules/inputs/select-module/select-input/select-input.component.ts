@@ -113,7 +113,7 @@ export class SelectInputComponent implements OnInit, OnChanges, OnDestroy {
 		}
 	}
 
-	@HostListener('window:resize', ['$event'])
+	@HostListener('window:resize')
 	initializeLeftPane(): void {
 		this.resizeHandler();
 	}
@@ -340,7 +340,7 @@ export class SelectInputComponent implements OnInit, OnChanges, OnDestroy {
 	}
 
 
-	@HostListener('document:keydown', ['$event'])
+	@HostListener('document:keydown')
 	scrollHandling($event: any): void {
 		// space and arrow keys
 		if ([32, 37, 38, 39, 40].indexOf($event.keyCode) > -1 && this.isOptionsOpen) {
@@ -349,7 +349,7 @@ export class SelectInputComponent implements OnInit, OnChanges, OnDestroy {
 	}
 
 
-	@HostListener('document:keyup', ['$event'])
+	@HostListener('document:keyup')
 	keyUpHandler(keyEvent: KeyboardEvent): void {
 		const key = keyEvent.key;
 		switch (key.toUpperCase()) {

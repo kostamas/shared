@@ -2,7 +2,8 @@ import {
 	Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild
 } from '@angular/core';
 import {fromEvent, Subject} from 'rxjs';
-import * as moment from 'moment';
+import * as momentNs from 'moment';
+const moment = momentNs;
 import {filter, switchMap, takeUntil, tap} from 'rxjs/operators';
 import {CalendarDatePickerService} from './calendarDatePicker.service';
 import {isDefineAndNotNull} from '../../../utils/jsUtils';
