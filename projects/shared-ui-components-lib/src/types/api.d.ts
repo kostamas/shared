@@ -1,4 +1,4 @@
-interface IEndpoints {
+export interface IEndpoints {
 	menus?: string;
 	userDetails?: string;
 	destinationAutoSuggest?: string;

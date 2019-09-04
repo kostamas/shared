@@ -1,4 +1,4 @@
-interface IMenuLink {
+export interface IMenuLink {
   id: number;
   name: string;
   icon: string;
