@@ -1,3 +1,5 @@
+@import "./shared";
+
 .page-title {
 	display: flex;
 	@include text-style(19px, $color10, null, 500);
