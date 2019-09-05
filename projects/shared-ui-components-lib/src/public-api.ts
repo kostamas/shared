@@ -17,27 +17,16 @@ export * from './modules/svg-icon-module/svg-icon.module';
 export * from './modules/toast-module/toast.module';
 export * from './modules/tooltip-module/tooltip.module';
 
-
-/* --- Interfaces --- */
-/*export * from './types/analytics';
-export * from './types/api';
-export * from './types/audit';
-export * from './types/auth';
-export * from './types/auto-suggest';
-export * from './types/buttons';
-export * from './types/calendar';
-export * from './types/ISelect';
-export * from './types/main-header';
-export * from './types/MenuLink';
-export * from './types/modal';
-export * from './types/select';
-export * from './types/seven-days-input';
-export * from './types/toast';*/
+/* --- Services --- */
+export * from './modules/popup-module/popup.service';
+export * from './modules/modal-module/modal.service';
 
 
 /* --- Constants --- */
 export * from './constants/currencies.constant';
 export * from './constants/shared.constant';
+export * from './modules/popup-module/popup.constant';
+export * from './modules/svg-icon-module/svg-icons.const';
 
 
 /* --- Libs --- */
@@ -46,3 +35,9 @@ export * from './libs/webStory';
 
 /* --- Utils --- */
 export * from './utils/jsUtils';
+export * from './modules/inputs/input-utils';
+
+
+/* --- Pipes --- */
+export * from './pipes/ellipsis.pipe';
+export * from './pipes/filter.pipe';
