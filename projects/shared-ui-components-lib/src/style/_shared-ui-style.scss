@@ -25,33 +25,60 @@
 }
 
 .action-button {
-	@include text-style(18px, $white, Roboto, normal);
-	@include dimension(auto, 40px);
-	@include flex(center, center);
-	border: 1px solid $color20;
-	background-color: $color20;
-	text-overflow: ellipsis;
-	box-sizing: border-box;
-	white-space: nowrap;
-	border-radius: 3px;
-	overflow: hidden;
-	padding: 0 16px;
-	cursor: pointer;
-	text-decoration: none;
-	outline: 0 none;
+  @include text-style(18px, $white, Roboto, normal);
+  @include dimension(auto, 40px);
+  @include flex(center, center);
+  position: relative;
+  border: 1px solid $color20;
+  background-color: $color20;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  white-space: nowrap;
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 0 16px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: 0 none;
 
-	&:active {background-color: $color78}
-	&:disabled, &.disabled {
-		background-color: $color45;
-		border-color: $color81;
-		color: $color46;
-		pointer-events: none;
-		cursor: default;
+  &:active {background-color: $color78}
+  &:disabled, &.disabled {
+    background-color: $color45;
+    border-color: $color81;
+    color: $color46;
+    pointer-events: none;
+    cursor: default;
 
-		svg * {fill: $color46 !important;}
-	}
+    svg * {fill: $color46 !important;}
+  }
 
-	.icon {margin: 2px 10px 0 0}
+  &.with-icon {
+    padding-left: 45px;
+    background-position: 16px center;
+    background-repeat: no-repeat;
+  }
+
+  &.loading .loader {display: block;}
+  &.with-icon.loading {background-image: none;}
+
+  .loader {
+    display: none;
+    position: absolute;
+    left: 26px;
+    top: 18px;
+
+    .circle-loader {
+      width: 22px;
+      height: 22px;
+
+      .circle {
+        border-width: 3px !important;
+        margin: 0 !important;
+      }
+    }
+  }
+
+  .icon {margin: 2px 10px 0 0}
 }
 
 .clear-search-button {
