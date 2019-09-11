@@ -52,14 +52,34 @@
     svg * {fill: $color46 !important;}
   }
 
-  &.with-icon {
+  &.with-icon, &.confirm, &.cancel {
     padding-left: 45px;
     background-position: 16px center;
     background-repeat: no-repeat;
   }
 
+  &.confirm {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAY1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+aRQ2gAAAAIHRSTlMA+Y0I7r9YQy0R8uHbx6l0TB7n0bmsn5WUgXxyYTszGJFKRwoAAAB7SURBVBjTZc7XEoUgDARQERXs3mJv+/9f6SqOYzQPkDlDwnqydBdWD/KBRMqsACXHMgCloJYSCjGU4HOXOCVF4lFDKYRUlDQWY1+Scf1ij6ug+E5K10WUn3aUs6/1GgDKnjsGsPI/j/Ha2+/2iD0pvGKb5BXbsxl/vWoD7+8KPZ+KXAIAAAAASUVORK5CYII=');
+
+    &:disabled, &.disabled {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAXVBMVEUAAACenJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ3WsczpAAAAHnRSTlMA+e3fjQhYQy0c8sfAu6l0TBDRrJ+VlIF8cmE7MxO9IJ/ZAAAAeUlEQVQY02XOSQ6FMAwDUEopLTP8eQDf/5hYeNOAF230lCgpbMKrn09UAa2VvwOcHfMAJkNPSm8kUsoml8WTatP0oIxGZopfctlKUlS9puMbKZVkUlVTbkHUsb6HhmMuFcoHTDfw+QqYN5Qh2/VzuJwdW52dJ3ntV3abSAmRY7NnrQAAAABJRU5ErkJggg==');
+    }
+  }
+
+  &.cancel {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAAHlBMVEUAAAAFWIUFWIUFWIUFWIUFWIUFWIUFWIUFWIUFWIUqULRvAAAACXRSTlMA6jAp5tyvurlcETC9AAAAXUlEQVQI12NoNWAAAaYwBk9nMEtxKoPiFAOQkKQwEDuDhCYC+UBBsBADSBAsBJYxAgmBBQVBQmDBmUAhKMuZASYL1I7QATEeYgqIBPNABIQLxhC+pzDMVaVQl7oBANZ5EvzgfYqxAAAAAElFTkSuQmCC');
+    background-color: white;
+    color: $color20;
+
+    &:disabled, &.disabled {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAAHlBMVEUAAACenJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ2enJ0svtaTAAAACXRSTlMA7OgwKeTcuq/aMutXAAAASklEQVQI12Moc2AAAeYIhkgVMMtwGoPhJAeQkKQKGDOA+GACwgWRYB5YxhkkBBZUBAmBBWeChBAshCxCB8IUhMkI2xAuQLgK4VIAeFMVQ/9q45MAAAAASUVORK5CYII=');
+      background-color: white;
+      color: $color46;
+    }
+  }
+
   &.loading .loader {display: block;}
-  &.with-icon.loading {background-image: none !important;}
+  &.with-icon.loading,  &.confirm.loading,  &.cancel.loading  {background-image: none !important;}
 
   .loader {
     display: none;
