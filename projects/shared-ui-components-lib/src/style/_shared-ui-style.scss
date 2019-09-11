@@ -59,7 +59,7 @@
   }
 
   &.loading .loader {display: block;}
-  &.with-icon.loading {background-image: none;}
+  &.with-icon.loading {background-image: none !important;}
 
   .loader {
     display: none;
