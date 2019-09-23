@@ -21,7 +21,7 @@ import {ErrorPopupComponent} from './error-popup/error-popup.component';
   providers: [
     PopupService
   ],
-  entryComponents: [PopupComponent]
+  entryComponents: [PopupComponent, ErrorPopupComponent]
 })
 export class PopupModule {
 }
