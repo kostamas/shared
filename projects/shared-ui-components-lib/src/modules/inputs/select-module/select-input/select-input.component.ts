@@ -352,15 +352,14 @@ export class SelectInputComponent implements OnInit, OnChanges, OnDestroy {
 	@HostListener('document:keyup', ['$event'])
 	keyUpHandler(keyEvent: KeyboardEvent): void {
 		const key = keyEvent.key;
-		switch (key.toUpperCase()) {
-			case 'TAB':
-				setTimeout(() => {
-					if (this.isOptionsOpen && this.openOptionsInModal && this.selectInput.nativeElement !== document.activeElement) {
-						this.closeOptions();
-					}
-				}, 10);
-				break;
-		}
+		
+		if (key && key.toUpperCase() === 'TAB') {
+      setTimeout(() => {
+        if (this.isOptionsOpen && this.openOptionsInModal && this.selectInput.nativeElement !== document.activeElement) {
+          this.closeOptions();
+        }
+      }, 10);
+    }
 	}
 
 
