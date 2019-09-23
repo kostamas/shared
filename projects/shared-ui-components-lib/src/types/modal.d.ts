@@ -2,7 +2,7 @@ import {ComponentRef} from '@angular/core';
 
 interface IModalConfig {
 	disableClose?: boolean;
-	hidCloseButton?: boolean;
+	showCloseButton?: boolean;
 	modalClass?: string | string[];
 	position?: IModalPosition;
 	closeModalCallback?: any;
@@ -15,7 +15,6 @@ interface IModalPosition {
 }
 
 interface IPopupData {
-	data?: any
 	title?: string;
 	content?: string;
 	onDone?: () => any;
@@ -41,14 +40,16 @@ interface IPopupButton {
 }
 
 interface IModal {
+	closeModalEventListener: () => void;
 	componentRef: ComponentRef<any>;
+	componentWrapper: HTMLElement;
+	closeButtonRef: HTMLElement;
 	modalContainer: HTMLElement;
 	modalOverlay: HTMLElement;
-	componentWrapper: HTMLElement;
-	closeModalCallback: any;
-	closeModal: any;
-	updateStyle: any;
 	updateComponentData: any;
-	id: string;
+	closeModalCallback: any;
+	updateStyle: any;
+	closeModal: any;
 	isOpen: boolean;
+	id: string;
 }

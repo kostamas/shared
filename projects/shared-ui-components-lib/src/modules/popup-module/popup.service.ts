@@ -9,7 +9,7 @@ import {IModalConfig, IPopupData} from '../../types/modal';
 })
 export class PopupService {
 	
-	private modalConfig: IModalConfig = {modalClass: 'pop-up', hidCloseButton: true, disableClose: false};
+	private modalConfig: IModalConfig = {modalClass: 'pop-up', showCloseButton: false, disableClose: false};
 	
 	constructor(private modalService: ModalService) {
 	}
