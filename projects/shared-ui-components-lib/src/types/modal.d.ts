@@ -1,20 +1,21 @@
 import {ComponentRef} from '@angular/core';
 
-export interface IModalConfig {
+interface IModalConfig {
 	disableClose?: boolean;
-	showCloseButton?: boolean;
+	hidCloseButton?: boolean;
 	modalClass?: string | string[];
 	position?: IModalPosition;
 	closeModalCallback?: any;
 	style?: any;
 }
 
-export interface IModalPosition {
+interface IModalPosition {
 	x: number;
 	y: number;
 }
 
-export interface IPopupData {
+interface IPopupData {
+	data?: any
 	title?: string;
 	content?: string;
 	onDone?: () => any;
@@ -23,13 +24,13 @@ export interface IPopupData {
 	disableClose?: boolean;
 }
 
-export interface IPopupTypes {
+interface IPopupTypes {
 	message: string;
 	error: string;
 	warning: string;
 }
 
-export interface IPopupButton {
+interface IPopupButton {
 	text: string;
 	handler: (p: any) => any;
 	style?: any;
@@ -39,17 +40,15 @@ export interface IPopupButton {
 	x?: string;
 }
 
-export interface IModal {
-	closeModalEventListener: () => void;
+interface IModal {
 	componentRef: ComponentRef<any>;
-	componentWrapper: HTMLElement;
-	closeButtonRef: HTMLElement;
 	modalContainer: HTMLElement;
 	modalOverlay: HTMLElement;
-	updateComponentData: any;
+	componentWrapper: HTMLElement;
 	closeModalCallback: any;
-	updateStyle: any;
 	closeModal: any;
-	isOpen: boolean;
+	updateStyle: any;
+	updateComponentData: any;
 	id: string;
+	isOpen: boolean;
 }
