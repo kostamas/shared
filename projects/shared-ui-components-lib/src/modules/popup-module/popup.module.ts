@@ -1,10 +1,11 @@
 import {NgModule} from '@angular/core';
 import {PopupService} from './popup.service';
-import {PopupComponent} from './popup/popup.component';
 import {ModalModule} from '../modal-module/modal.module';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {SvgIconModule} from '../svg-icon-module/svg-icon.module';
 import {ButtonsModule} from '../buttons-module/buttons.module';
+import {PopupComponent} from './popup/popup.component';
+import {ErrorPopupComponent} from './error-popup/error-popup.component';
 
 @NgModule({
 	imports: [
@@ -14,7 +15,8 @@ import {ButtonsModule} from '../buttons-module/buttons.module';
 		ButtonsModule
 	],
   declarations: [
-    PopupComponent
+    PopupComponent,
+    ErrorPopupComponent
   ],
   providers: [
     PopupService

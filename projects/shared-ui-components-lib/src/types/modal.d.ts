@@ -17,6 +17,7 @@ interface IModalPosition {
 interface IPopupData {
 	title?: string;
 	content?: string;
+	data?: any;
 	onDone?: () => any;
 	onCancel?: () => any;
 	buttons?: IPopupButton[];
