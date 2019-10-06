@@ -1,4 +1,4 @@
-export interface IEndpoints {
+interface IEndpoints {
 	menus?: string;
 	userDetails?: string;
 	destinationAutoSuggest?: string;
@@ -11,6 +11,7 @@ export interface IEndpoints {
 	roomTypeAutoSuggest?: string;
 	roomFeatureAutoSuggest?: string;
 	favorites?: string;
+	AdfAtlasURL?: string;
 	adfWrapper?: string;
 	logoutURL?: string;
 	productSensitivitiesRules?: string;
@@ -18,6 +19,9 @@ export interface IEndpoints {
 	clientSensitivitiesRules?: string;
 	clientSensitivities?: string;
 	regionsAutoSuggest?: string;
+	incomingOfficeAutoSuggest?: string;
+	distributionWebServer?: string;
+	sensitivitiesRules?: string;
 	hasRoles?: string;
 	audit?: string;
 	disconnectSI?: string;
@@ -30,4 +34,10 @@ export interface IEndpoints {
 	clientAutoSuggestSourcing?: string;
 	oneContractImportSelectedContract?: string;
 	oneContractLoadContracts?: string;
+	preContractsSearch?: string;
+	validateRatePlanSourcing?: string;
+	creationUsers?: string;
+	countriesAutoSuggestSourcing?: string;
+	productDistributionRuleHistory?: string;
+	clientDistributionRuleHistory?: string;
 }

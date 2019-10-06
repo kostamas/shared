@@ -1,4 +1,4 @@
-export const CURRENCIES: any = {
+export const currencies: any = {
 	EUR: {symbol: '€'},
 	USD: {symbol: '$'},
 	MXN: {symbol: '$'},

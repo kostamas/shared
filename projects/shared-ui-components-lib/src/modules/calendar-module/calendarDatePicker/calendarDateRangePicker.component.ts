@@ -28,6 +28,7 @@ export class CalendarDateRangePickerComponent implements OnInit, OnDestroy, OnCh
 	@Input() date: string;
 	@Input() dateFormat: string;
 	@Input() disableRangeSelection: boolean;
+	@Input() allowPastDates: boolean = false;
 	@Input() externalSelection$: Subject<ICalendarClickPosition>;
 	@Input() rangeSize: number = 31;
 	@Input() isSingleSelection: boolean;
@@ -103,14 +104,15 @@ export class CalendarDateRangePickerComponent implements OnInit, OnDestroy, OnCh
 				filter(date => isDefineAndNotNull(date))
 			)
 			.subscribe(selectedDate => setTimeout(() => {
+				if (selectedDate) {
 					if (this.isSingleSelection) {
 						this.date = selectedDate.format(this.dateFormat ? this.dateFormat : DATE_FORMAT);
 						this.singleSelectionHandler(selectedDate);
 					} else {
 						this.selectRangeHandler();
 					}
-				})
-			);
+				}
+			}));
 	}
 
 	initExternalSelectionHandler(): void {
@@ -133,8 +135,8 @@ export class CalendarDateRangePickerComponent implements OnInit, OnDestroy, OnCh
 				dayNumber: isEmpty ? -1 : day,
 				isSelected: false,
 				today: todayMonth === dateMonth && todayDayNumber === day && todayYear === dateYear && !isEmpty,
-				past: todayYear > dateYear || (todayYear === dateYear && todayMonth > dateMonth)
-					|| (todayYear === dateYear && todayMonth === dateMonth && todayDayNumber > day),
+				past: !this.allowPastDates && (todayYear > dateYear || (todayYear === dateYear && todayMonth > dateMonth)
+					|| (todayYear === dateYear && todayMonth === dateMonth && todayDayNumber > day)),
 				isDisabled: this.calcDisabledRange(moment([dateYear, dateMonth, day]))
 			});
 			if (!isEmpty) {
@@ -191,7 +193,7 @@ export class CalendarDateRangePickerComponent implements OnInit, OnDestroy, OnCh
 			isDisabled = this.isOverlapWithDisabledRanges(selectedRange.date1 || selectedRange.date2, selectedDate);
 		}
 
-		const isPast = (dateYear < todayYear || (dateYear === todayYear && dateMonth < todayMonth)) || today.diff(selectedDate, 'days') > 0;
+		const isPast = !this.allowPastDates && ((dateYear < todayYear || (dateYear === todayYear && dateMonth < todayMonth)) || today.diff(selectedDate, 'days') > 0);
 		if (!isDisabled && !isPast && this.daysToSelect[index] && this.daysToSelect[index] !== this.selectedDay) {
 			this.selectedDay = this.daysToSelect[index];
 			const date = moment(this.date, this.dateFormat ? this.dateFormat : DATE_FORMAT);
@@ -294,8 +296,8 @@ export class CalendarDateRangePickerComponent implements OnInit, OnDestroy, OnCh
 
 		for (let i = 0; i < this.NUM_OF_CELLS; i++) {
 			if (!this.daysToSelect[i].isEmpty) {
-				this.daysToSelect[i].past = todayYear > dateYear || (todayYear === dateYear && todayMonth > dateMonth)
-					|| (todayYear === dateYear && todayMonth === dateMonth && todayDayNumber > this.daysToSelect[i].dayNumber);
+				this.daysToSelect[i].past = !this.allowPastDates && (todayYear > dateYear || (todayYear === dateYear && todayMonth > dateMonth)
+					|| (todayYear === dateYear && todayMonth === dateMonth && todayDayNumber > this.daysToSelect[i].dayNumber));
 			}
 		}
 

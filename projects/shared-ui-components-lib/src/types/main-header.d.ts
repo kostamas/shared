@@ -1,29 +1,29 @@
-export interface IUser {
+interface IUser {
   img: string;
   username: string;
 }
 
-export interface IHeaderTab {
+interface IHeaderTab {
   id: number;
   name: string;
   icon: string;
   menus: IMenu[];
 }
 
-export interface IMenu {
+interface IMenu {
   id: number;
   name: string;
   menus: IPageGroupNames[];
 }
 
-export interface IPageGroupNames {
+interface IPageGroupNames {
   id: number;
   title: string;
   name: string;
   menus: IPage[];
 }
 
-export interface IPage {
+interface IPage {
   id: number;
   isFavorite: boolean;
   formCode: string;
@@ -31,13 +31,13 @@ export interface IPage {
   link: string;
 }
 
-export interface IMainHeaderConfig {
+interface IMainHeaderConfig {
   calcSideBarClass?: (...args: any[]) => string;
   sideBarCustomClass?: string;
 	isMainHeaderOpenHandler?: (openOverlay: boolean) => void;
 }
 
-export interface IMainHeaderConfigConstructor {
+interface IMainHeaderConfigConstructor {
   new(...args: any[]): IMainHeaderConfig;
 }
 

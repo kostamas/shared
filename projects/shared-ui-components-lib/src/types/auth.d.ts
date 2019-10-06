@@ -4,7 +4,7 @@ export interface IAuthConfig {
 	logoutFromHotelBeds: boolean;
 }
 
-export interface ILoginConfigConstructor {
+interface ILoginConfigConstructor {
 	new(...args: any[]): IAuthConfig;
 }
 

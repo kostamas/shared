@@ -11,3 +11,5 @@ export const OPTIONS_TYPES_COMPONENTS = {
 	[OPTIONS_TYPES.regular]: SelectRegularOptionsComponent,
 	[OPTIONS_TYPES.multiSelection]: MultiSelectColorfulOptionsComponent
 }
+
+export const ALL_OPTION = {name: 'All', id: 'All'};

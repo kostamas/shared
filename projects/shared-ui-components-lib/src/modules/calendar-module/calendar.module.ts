@@ -5,32 +5,37 @@ import {MultiDatePickerComponent} from './multiDatePicker/multiDatePicker.compon
 import {BrowserModule} from '@angular/platform-browser';
 import {SvgIconModule} from '../svg-icon-module/svg-icon.module';
 import {FormsModule} from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {DateInputComponent} from './date-input/date-input.component';
-import { MultiDatePickerWrapperComponent } from './multi-date-picker-wrapper/multi-date-picker-wrapper.component';
+import {MultiDatePickerWrapperComponent} from './multi-date-picker-wrapper/multi-date-picker-wrapper.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    SvgIconModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  declarations: [
-    CalendarDateRangePickerComponent,
-    MultiDatePickerComponent,
+	imports: [
+		BrowserModule,
+		SvgIconModule,
+		FormsModule,
+		ReactiveFormsModule
+	],
+	declarations: [
+		CalendarDateRangePickerComponent,
+		MultiDatePickerComponent,
 		DateInputComponent,
 		MultiDatePickerWrapperComponent
-  ],
-  providers: [
-    CalendarDatePickerService
-  ],
-  exports: [
-    CalendarDateRangePickerComponent,
-    MultiDatePickerComponent,
+	],
+	entryComponents: [
+		CalendarDateRangePickerComponent,
+		MultiDatePickerComponent,
+		MultiDatePickerWrapperComponent
+	],
+	providers: [
+		CalendarDatePickerService
+	],
+	exports: [
+		CalendarDateRangePickerComponent,
+		MultiDatePickerComponent,
 		DateInputComponent,
-    MultiDatePickerWrapperComponent
-  ]
+		MultiDatePickerWrapperComponent
+	]
 })
 export class CalendarModule {
 }

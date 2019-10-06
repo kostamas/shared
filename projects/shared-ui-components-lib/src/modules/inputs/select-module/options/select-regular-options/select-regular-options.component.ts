@@ -1,7 +1,13 @@
 import {
-	Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation
+	Component,
+	ElementRef,
+	HostListener,
+	Input,
+	OnDestroy,
+	OnInit,
+	ViewChild,
+	ViewEncapsulation
 } from '@angular/core';
-import {ISelectItem} from '../../../../../types/ISelect';
 import {SelectInputService} from '../../select-input.service';
 
 @Component({
@@ -11,10 +17,9 @@ import {SelectInputService} from '../../select-input.service';
 	encapsulation: ViewEncapsulation.None
 })
 export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
-	public selectList: ISelectItem[];
 	private stringToSearch: string = '';
-	public suggestedIndex: number = -1;
-	private timeout: number = null;
+	private suggestedIndex: number = -1;
+	private timeout: any = null;
 	private optionHeight: number = 39;
 
 	@Input('data') data: any;
@@ -25,14 +30,13 @@ export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		this.selectList = this.data ? this.data.selectList : [];
+		this.data.selectList = this.data ? this.data.selectList : [];
 		const optionElement = this.optionsWrapper && this.optionsWrapper.nativeElement.firstElementChild;
 		this.optionHeight = optionElement && optionElement.clientHeight || this.optionHeight;
-		if (this.data && this.data.withEmptyOption && !this.selectInputService.isContains(this.selectList, null, null)) {
-			this.selectList.unshift({id: null, name: ''});
+		if (this.data && this.data.withEmptyOption && !this.selectInputService.isContains(this.data.selectList, null, null)) {
+			this.data.selectList.unshift({id: null, name: ''});
 		}
 	}
-
 
 	@HostListener('document:keyup', ['$event'])
 	keyUpHandler(keyEvent: KeyboardEvent): void {
@@ -69,10 +73,12 @@ export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
 				this.endIndex();
 				break;
 			default:
-				this.stringToSearch += key;
-				this.suggestedIndex = this.suggestItemIndex(this.stringToSearch);
-				if (this.suggestedIndex > -1) {
-					this.data.syncScrollBar(this.suggestedIndex, this.selectList, this.optionHeight);
+				if (!this.data.withAutoSuggest) {
+					this.stringToSearch += key;
+					this.suggestedIndex = this.suggestItemIndex(this.stringToSearch);
+					if (this.suggestedIndex > -1) {
+						this.data.syncScrollBar(this.suggestedIndex, this.data.selectList, this.optionHeight);
+					}
 				}
 		}
 	}
@@ -81,39 +87,39 @@ export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
 		if (this.suggestedIndex + 1 !== this.data.selectList.length) {
 			this.suggestedIndex++;
 			this.clearStringSuggestion();
-			this.data.syncScrollBar(this.suggestedIndex, this.selectList, this.optionHeight);
+			this.data.syncScrollBar(this.suggestedIndex, this.data.selectList, this.optionHeight);
 		}
 	}
 
 	firstIndex(): void {
 		this.suggestedIndex = 0;
 		this.clearStringSuggestion();
-		this.data.syncScrollBar(this.suggestedIndex, this.selectList, this.optionHeight);
+		this.data.syncScrollBar(this.suggestedIndex, this.data.selectList, this.optionHeight);
 	}
 
 	endIndex(): void {
 		this.suggestedIndex = this.data.selectList.length - 1;
 		this.clearStringSuggestion();
-		this.data.syncScrollBar(this.suggestedIndex, this.selectList, this.optionHeight);
+		this.data.syncScrollBar(this.suggestedIndex, this.data.selectList, this.optionHeight);
 	}
 
 	previousIndex(): void {
 		if (this.suggestedIndex - 1 > -1) {
 			this.suggestedIndex--;
 			this.clearStringSuggestion();
-			this.data.syncScrollBar(this.suggestedIndex, this.selectList, this.optionHeight);
+			this.data.syncScrollBar(this.suggestedIndex, this.data.selectList, this.optionHeight);
 		}
 	}
 
 	selectValue(index: string): void {
-		this.selectInputService.resetOptionsList(this.selectList);
-		this.selectList[index].isSelected = true;
-		this.data.onSelectItem(index, this.selectList[index].id, true);
+		this.selectInputService.resetOptionsList(this.data.selectList);
+		this.data.selectList[index].isSelected = true;
+		this.data.onSelectItem(index, this.data.selectList[index].id, true);
 	}
 
 	suggestItemIndex(str: string): number {
 		const regex = new RegExp(`^${str}`, 'i');
-		const relevantItems = this.selectList.reduce((accumulator, item, index) => {
+		const relevantItems = this.data.selectList.reduce((accumulator, item, index) => {
 			if (regex.test(String(item.name))) {
 				return [...accumulator, {index: index, item: item}];
 			} else {
@@ -135,7 +141,7 @@ export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		if (this.data && this.data.withEmptyOption && this.selectList[0].id === null) {
+		if (this.data && this.data.withEmptyOption && this.data.selectList[0].id === null) {
 			this.data.selectList.shift();
 		}
 

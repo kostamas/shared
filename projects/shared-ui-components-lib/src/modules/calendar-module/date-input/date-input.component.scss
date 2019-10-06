@@ -65,6 +65,14 @@
 				fill: $color46;
 			}
 		}
+
+		.round-close {
+			@include position(absolute, 10.5px, 10px);
+
+			svg {
+				@include dimension(16px, 16px);
+			}
+		}
 	}
 
 	.calendar-wrapper {
@@ -74,4 +82,15 @@
 
 .date-input-component.invalid .date-input {
 	border: 1px solid red;
+}
+
+.modal-container.date-options-modal {
+	.modal-overlay {
+		background-color: transparent !important;
+	}
+
+	.component-wrapper {
+		width: auto !important;
+		box-shadow: none;
+	}
 }

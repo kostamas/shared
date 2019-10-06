@@ -1,0 +1,20 @@
+<div class="close-button click-able" (click)="closeHandler()">
+	<app-svg-icon [svg]="SVG_ICONS.round_close"></app-svg-icon>
+</div>
+<div class="help-menu-modal">
+	<div class="title">
+		Help
+	</div>
+	<div class="help-results" *ngIf="helpItems?.length > 0">
+		<div class="help-row" *ngFor="let helpItem of helpItems">
+			<div class="help-icon">
+				<app-svg-icon [svg]="SVG_ICONS.downloadIcon"></app-svg-icon>
+			</div>
+			<div class="help-name click-able-red" (click)="pageClickHandler(helpItem)">
+        <span title="{{helpItem.name}}">
+          {{helpItem.name}}
+        </span>
+			</div>
+		</div>
+	</div>
+</div>

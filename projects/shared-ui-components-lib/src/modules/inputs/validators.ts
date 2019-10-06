@@ -7,3 +7,7 @@ export const selectRequired = (selectedItem: ISelectItem): IValidationStatus => 
 		return {isValid: true, message: ''};
 	}
 }
+
+export const dirtyAndRequired = (val: string, isDirty: boolean): IValidationStatus => {
+	return (isDirty && !val) ? {isValid: false, message: ''} : {isValid: true, message: ''};
+}

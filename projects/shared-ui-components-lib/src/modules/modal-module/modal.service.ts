@@ -7,16 +7,17 @@ import {IModal, IModalConfig} from '../../types/modal';
 })
 export class ModalService {
 	public modals: IModal[] = [];
+	private componentsOutputs: any[] = [];
 
 	constructor(private componentFactoryResolver: ComponentFactoryResolver, private appRef: ApplicationRef,
 							private injector: Injector) {
 	}
 
-	open(component: any, modalConfig?: IModalConfig, data?: any): any {
-		return this.appendComponentToBody(component, modalConfig, data);
+	open(component: any, modalConfig?: IModalConfig, data?: any, inputs?: any, outputs?: any): any {
+		return this.appendComponentToBody(component, modalConfig, data, inputs, outputs);
 	}
 
-	appendComponentToBody(component: any, modalConfig?: IModalConfig, data?: any): any {
+	appendComponentToBody(component: any, modalConfig?: IModalConfig, data?: any, inputs?: any, outputs?: any): any {
 		const id = generateId();
 		const modal: any = {id};
 
@@ -47,9 +48,21 @@ export class ModalService {
 
 		if (data) {
 			data.modal = modal;
+			modal.componentRef.instance.data = data;
 		}
 
-		modal.componentRef.instance.data = data;
+		if (inputs) {
+			Object.keys(inputs).forEach((inputName: string) => {
+				modal.componentRef.instance[inputName] = inputs[inputName];
+			});
+		}
+
+		if (outputs) {
+			Object.keys(outputs).forEach((outputName: string) => {
+				modal.componentRef.instance[outputName].subscribe(outputs[outputName]);
+			});
+		}
+
 		modal.componentRef.instance.closeModal = this.closeModal.bind(this, modal);
 		modal.componentRef.changeDetectorRef.detectChanges();
 
@@ -168,6 +181,7 @@ export class ModalService {
 				this.modals.slice(index, 1);
 			}
 
+			this.componentsOutputs.forEach(subscription => subscription.unsubscribe());
 		});
 	}
 }

@@ -8,8 +8,8 @@ import {SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AbstractControl} from '@angular/forms';
 import {isEmpty} from '../../../utils/jsUtils';
-import {ICalendarClickPosition, IFromTo} from '../../../types/calendar';
-import {DATE_FORMAT} from '../../../constants/shared.constant';
+import {ICalendarClickPosition, IFromTo} from '../../../types/celendar';
+import {DATE_FORMAT} from '../../../services/shared-constants.service';
 
 @Component({
 	selector: 'app-multi-date-picker',
@@ -33,6 +33,7 @@ export class MultiDatePickerComponent implements OnInit, OnDestroy {
 
 	@Input('disabledRanges') disabledRanges: IFromTo[];
 	@Input('config') config?: any;
+	@Input('allowPastDates') allowPastDates: boolean;
 
 	@Output('onSelectRange') onSelectRange: EventEmitter<any> = new EventEmitter();
 

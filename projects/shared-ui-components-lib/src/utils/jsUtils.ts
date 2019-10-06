@@ -18,6 +18,26 @@ export const deepCopy = (obj) => {
 	}
 };
 
+
+export const convertDataInObject = (obj: any, conditionMethod: any, actionMethod: any) => {
+	if (obj === null || typeof obj !== 'object') {
+		return obj;
+	} else if (Array.isArray(obj)) {
+		obj.forEach(o => {
+			o = convertDataInObject(o, conditionMethod, actionMethod);
+		});
+	} else {
+		Object.keys(obj).forEach(o => {
+			if ((typeof o !== 'object' || o === null) && conditionMethod(obj, o)) {
+				actionMethod(obj, o);
+			} else {
+				obj[o] = convertDataInObject(obj[o], conditionMethod, actionMethod);
+			}
+		});
+	}
+	return obj;
+};
+
 export const fastDeepCopy = (src) => {
 	return JSON.parse(JSON.stringify(src));
 };

@@ -14,7 +14,7 @@
 		<div class="popup-buttons-repeater" *ngFor="let button of data.buttons">
 
 
-			<div *ngIf="!button.withLoader" [ngClass]="button.btnClass ? button.btnClass: 'action-button'"
+			<div *ngIf="!button.withLoader"  [ngClass]="button.btnClass ? button.btnClass: 'hb-button'"
 					 class="popup-button" (click)="button.handler(closeModal)" [ngStyle]="button.style">
 				<div class="popup-button-svg" *ngIf="button.svg">
 					<app-svg-icon [svg]="button.svg"></app-svg-icon>

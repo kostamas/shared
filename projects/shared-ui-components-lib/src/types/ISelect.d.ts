@@ -6,6 +6,7 @@ export interface ISelectItem {
 	backgroundColor?: string;
 	color?: string;
 	svg?: string;
+	withoutChips?: boolean;
 }
 
 export interface IValidationStatus {

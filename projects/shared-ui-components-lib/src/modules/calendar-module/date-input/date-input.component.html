@@ -2,8 +2,14 @@
 		 #dateInputElement
 		 [ngClass]="{invalid: !validationStatus.isValid ? 'invalid': '', 'date-picker-open': isOpen}">
 	<div class="date-input-and-icon" (click)="openDatePicker()">
-		<app-svg-icon [svg]="SVG_ICONS.calendar" class="calendar-icon cursor-pointer">
+		<app-svg-icon [svg]="SVG_ICONS.calendar" class="calendar-icon cursor-pointer"></app-svg-icon>
+
+		<app-svg-icon class="round-close cursor-pointer"
+									*ngIf="!selectedDateArr && (selectedDate || selectedRangeText)"
+									[svg]="SVG_ICONS.round_close"
+									(click)="clearDateInput($event)">
 		</app-svg-icon>
+
 		<input *ngIf="!multiDatePicker"
 					 class="date-input cursor-pointer hb-input"
 					 [ngModel]="selectedDate"
@@ -28,7 +34,8 @@
 
 	<div class="calendar-wrapper" #calendarWrapperElement>
 		<app-calendar-date-range-picker
-			*ngIf="isOpen && !multiDatePicker"
+			*ngIf="isOpen && !multiDatePicker && !openInModal"
+			[allowPastDates]="allowPastDates"
 			[isSingleSelection]="true"
 			[dateFormat]="dateFormat"
 			[date]="selectedDate"
@@ -36,7 +43,8 @@
 		</app-calendar-date-range-picker>
 
 		<app-multi-date-picker-wrapper
-			*ngIf="isOpen && multiDatePicker"
+			*ngIf="isOpen && multiDatePicker && !openInModal"
+			[allowPastDates]="allowPastDates"
 			[selectedRange]="selectedDate"
 			(rangeSelected)="onSelectRange($event)">
 		</app-multi-date-picker-wrapper>

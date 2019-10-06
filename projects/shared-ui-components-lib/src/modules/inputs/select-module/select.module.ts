@@ -8,6 +8,7 @@ import {ButtonsModule} from '../../buttons-module/buttons.module';
 import {SelectInputService} from './select-input.service';
 import {EllipseModule} from '../../ellipse-module/ellipse.module';
 import {TooltipModule} from '../../tooltip-module/tooltip.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
 	imports: [
@@ -15,7 +16,8 @@ import {TooltipModule} from '../../tooltip-module/tooltip.module';
 		SvgIconModule,
 		ButtonsModule,
 		TooltipModule,
-		EllipseModule
+		EllipseModule,
+		FormsModule
 	],
 	declarations: [
 		SelectInputComponent,

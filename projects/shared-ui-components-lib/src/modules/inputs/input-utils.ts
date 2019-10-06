@@ -40,7 +40,15 @@ export const isRangeValue = (event: any, minValue: number, maxValue: number, isF
 	if (!numberOnly(event) && charCode === 46 && !isFloat) {
 		result = false;
 	}
-	const value: string = event.srcElement.value + event.key;
+	const cursorPoint: number = event.srcElement.selectionStart;
+	let value: string;
+	if (cursorPoint === 0) { // start of string
+		value = event.key + event.srcElement.value;
+	} else if (cursorPoint < event.srcElement.value.length) { //middle of string
+		value = event.srcElement.value.toString().slice(0, cursorPoint) + event.key.toString() + event.srcElement.value.toString().slice(cursorPoint);
+	} else { // end of string
+		value = event.srcElement.value + event.key;
+	}
 	const numValue: number = isFloat ? parseFloat(value) : Number(value);
 	if (value.length > 1 && value.length <= 2 && value.charCodeAt(0) === 48 && charCode !== 46) {
 		result = false;

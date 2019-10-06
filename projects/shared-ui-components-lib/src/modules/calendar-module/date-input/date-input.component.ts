@@ -3,9 +3,11 @@ import {
 	ElementRef,
 	EventEmitter,
 	HostListener,
-	Input, OnChanges,
+	Input,
+	OnChanges,
 	OnInit,
-	Output, SimpleChanges,
+	Output,
+	SimpleChanges,
 	ViewChild,
 	ViewEncapsulation
 } from '@angular/core';
@@ -15,7 +17,11 @@ import * as momentNs from 'moment';
 const moment = momentNs;
 import {IValidationStatus} from '../../../types/ISelect';
 import {Subject} from 'rxjs';
-import {DATE_FORMAT} from '../../../constants/shared.constant';
+import {DATE_FORMAT} from '../../../services/shared-constants.service';
+import {IModal, IModalConfig} from '../../../types/modal';
+import {ModalService} from '../../modal-module/modal.service';
+import {MultiDatePickerWrapperComponent} from '../multi-date-picker-wrapper/multi-date-picker-wrapper.component';
+import {CalendarDateRangePickerComponent} from '../calendarDatePicker/calendarDateRangePicker.component';
 
 @Component({
 	selector: 'app-date-input',
@@ -28,6 +34,8 @@ export class DateInputComponent implements OnInit, OnChanges {
 	public SVG_ICONS: ISvgIcons = SVG_ICONS;
 	public validationStatus: IValidationStatus = {isValid: true};
 	public selectedRangeText: string = '';
+	public modalConfig: IModalConfig;
+	public modal: IModal;
 
 	@Input('dateFormat') dateFormat: string;
 	@Input('selectedDate') selectedDate: any = ''; // todo - add selected range
@@ -37,6 +45,8 @@ export class DateInputComponent implements OnInit, OnChanges {
 	@Input('calendarDate') calendarDate: string = '';
 	@Input('isOpen') isOpen: boolean = false;
 	@Input('validationStatus$') validationStatus$: Subject<IValidationStatus>;
+	@Input('openInModal') openInModal: boolean = false;
+	@Input('allowPastDates') allowPastDates: boolean = false;
 
 	@ViewChild('dateInputElement') dateInputElement: ElementRef;
 	@ViewChild('calendarWrapperElement') calendarWrapperElement: ElementRef;
@@ -46,7 +56,7 @@ export class DateInputComponent implements OnInit, OnChanges {
 	@Output('dateDeleted') dateDeleted: EventEmitter<any> = new EventEmitter<any>();
 	@Output('isOpenChanged') isOpenChanged: EventEmitter<any> = new EventEmitter<any>();
 
-	constructor(private calendarDatePickerService: CalendarDatePickerService) {
+	constructor(private calendarDatePickerService: CalendarDatePickerService, public modalService: ModalService) {
 	}
 
 	ngOnInit(): void {
@@ -74,6 +84,9 @@ export class DateInputComponent implements OnInit, OnChanges {
 					this.selectedRangeText = moment(selectedDate.from, DATE_FORMAT).format(DATE_FORMAT) + ' - ' + moment(selectedDate.to).format(DATE_FORMAT);
 				}
 			}
+			if (changes.selectedDate.currentValue === null) {
+				this.clearDateInput();
+			}
 		}
 	}
 
@@ -88,20 +101,72 @@ export class DateInputComponent implements OnInit, OnChanges {
 
 	openDatePicker(): void {
 		this.isOpen = true;
-		this.isOpenChanged.next(this.isOpen);
-		if (this.selectedDate) {
-			this.calendarDatePickerService.selectDate$.next(moment(this.selectedDate, DATE_FORMAT));
+		if (!this.openInModal) {
+			this.isOpenChanged.next(this.isOpen);
+			if (this.selectedDate) {
+				this.calendarDatePickerService.selectDate$.next(moment(this.selectedDate, DATE_FORMAT));
+			}
+		} else {
+			const {x, y, width, left, top} = this.dateInputElement.nativeElement.getBoundingClientRect();
+			this.modalConfig = {
+				modalClass: 'date-options-modal',
+				style: {width: `${width - 2}px`},
+				closeModalCallback: () => {
+					this.modal = null;
+					this.isOpen = false;
+				}
+			};
+
+			let componentToCompile;
+			let componentInputs;
+			let componentOutputs;
+
+			if (this.multiDatePicker) {
+				const position = {x: (x || left) + 353, y: (y || top) + 193};
+				this.modalConfig.position = position;
+				componentToCompile = MultiDatePickerWrapperComponent;
+				componentInputs = {
+					isSingleSelection: true,
+					dateFormat: this.dateFormat,
+					date: this.selectedDate,
+					allowPastDates: this.allowPastDates
+				};
+				componentOutputs = {
+					rangeSelected: (date: string) => {
+						this.onSelectRange(date);
+						this.modal.closeModal();
+					}
+				};
+			} else {
+				const position = {x: (x || left) + 120, y: (y || top) + 136};
+				this.modalConfig.position = position;
+				componentToCompile = CalendarDateRangePickerComponent;
+				componentInputs = {
+					isSingleSelection: true,
+					dateFormat: this.dateFormat,
+					date: this.selectedDate,
+					calendarDatePickerService: this.calendarDatePickerService,
+					allowPastDates: this.allowPastDates
+				};
+				componentOutputs = {
+					selectedRange: (date: string) => {
+						this.onSelectDate(date);
+						this.modal.closeModal();
+					}
+				};
+			}
+			this.modal = this.modalService.open(componentToCompile, this.modalConfig, null, componentInputs, componentOutputs);
 		}
 	}
 
-	onSelectDate(date: string): void {
+	onSelectDate = (date: string) => {
 		this.selectedDate = moment(date, DATE_FORMAT).format(this.dateFormat ? this.dateFormat : DATE_FORMAT);
 		this.dateSelected.next(this.selectedDate);
 		this.isOpen = false;
 		this.isOpenChanged.next(this.isOpen);
 	}
 
-	onSelectRange(range: any): void {
+	onSelectRange = (range: any) => {
 		this.rangeSelected.next(range);
 		this.isOpen = false;
 		this.isOpenChanged.next(this.isOpen);
@@ -111,6 +176,21 @@ export class DateInputComponent implements OnInit, OnChanges {
 	deleteDate(dateToDelete: string, index: number): void {
 		this.dateDeleted.next({deletedDate: dateToDelete, index});
 		this.selectedDateArr.splice(index, 1);
+	}
+
+	clearDateInput($event?: MouseEvent): void {
+		if (this.multiDatePicker) {
+			this.selectedDate = '';
+			this.selectedRangeText = '';
+			this.rangeSelected.next('');
+		} else {
+			this.selectedDate = '';
+			this.calendarDatePickerService.selectDate$.next(this.selectedDate);
+			this.dateSelected.next('');
+		}
+		if ($event) {
+			$event.stopPropagation();
+		}
 	}
 
 	selectedDateClickHandler($event: MouseEvent): void {

@@ -36,6 +36,11 @@ export interface ISvgIcons {
 	moon: string;
 	contract: string;
 	errorTriangle: string;
+	technicalErrorTriangle: string;
+	downloadIcon: string;
+	publish: string;
+	publish_x: string;
+	publish_checkMark: string;
 }
 
 export const SVG_ICONS: ISvgIcons = {
@@ -75,5 +80,10 @@ export const SVG_ICONS: ISvgIcons = {
 	link: 'link',
 	moon: 'moon',
 	contract: 'contract',
-	errorTriangle: 'errorTriangle'
+	errorTriangle: 'errorTriangle',
+	technicalErrorTriangle: 'technicalErrorTriangle',
+	downloadIcon: 'downloadIcon',
+	publish: 'publish',
+	publish_x: 'publish_x',
+	publish_checkMark: 'publish_checkMark'
 };

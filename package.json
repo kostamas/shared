@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "post-build": "cp -r projects/shared-ui-components-lib/src/style dist/shared-ui-components-lib/style",
-    "publish-lib": "npm run build && npm run post-build && npm publish dist/shared-ui-components-lib"
+    "publish-lib": "npm run build && npm run post-build && npm publish dist/shared-ui-components-lib",
+    "local-build": "npm run build && npm run post-build"
   },
   "private": true,
   "dependencies": {
