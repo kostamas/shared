@@ -1,3 +1,5 @@
+import {Observable} from 'rxjs';
+
 interface IUser {
   img: string;
   username: string;
@@ -35,6 +37,7 @@ interface IMainHeaderConfig {
   calcSideBarClass?: (...args: any[]) => string;
   sideBarCustomClass?: string;
 	isMainHeaderOpenHandler?: (openOverlay: boolean) => void;
+  api$: Observable<any>;
 }
 
 interface IMainHeaderConfigConstructor {

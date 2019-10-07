@@ -11,6 +11,7 @@ import {SharedConstants} from '../../services/shared-constants.service';
 import {NewLinksService} from './new-links/new-links.service';
 import {SvgIconModule} from '../svg-icon-module/svg-icon.module';
 import { HelpSideBarComponent } from './side-bar-menu/side-bar-components/help-side-bar/help-side-bar.component';
+import {IMainHeaderConfigConstructor} from '../../types/main-header';
 
 @NgModule({
 	imports: [

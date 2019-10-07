@@ -7,8 +7,10 @@ import {MainHeaderService} from './main-header.service';
 import {filter, tap} from 'rxjs/operators';
 import {UserDetails} from './user-details';
 import {FavoritesService} from './favorites.service';
-import {WrapperConnectorService} from '../../../services/wrapper-connector.service';
 import {CommonService} from '../../services/common.service';
+import {IHeaderTab} from '../../types/main-header';
+import {IMenuLink} from '../../types/MenuLink';
+import {WrapperConnectorService} from '../../services/wrapper-connector.service';
 
 @Component({
 	selector: 'app-main-header',

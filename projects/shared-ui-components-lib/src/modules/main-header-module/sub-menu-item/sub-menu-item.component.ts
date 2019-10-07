@@ -2,6 +2,8 @@ import {Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleCha
 import {FavoritesService} from '../favorites.service';
 import {MainHeaderService} from '../main-header.service';
 import {level4NewLinksIds} from '../new-links/level4';
+import {IMenu} from '../../../types/main-header';
+import {IMenuLink} from '../../../types/MenuLink';
 
 @Component({
 	selector: 'app-sub-menu-item',

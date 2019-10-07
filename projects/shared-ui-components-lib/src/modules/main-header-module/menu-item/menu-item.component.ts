@@ -1,6 +1,7 @@
 import {Component, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {MainHeaderService} from '../main-header.service';
 import {newLevels1} from '../main-header.const';
+import {IHeaderTab, IMenu} from '../../../types/main-header';
 
 @Component({
 	selector: 'app-menu-item',
@@ -13,7 +14,6 @@ export class MenuItemComponent implements OnInit, OnChanges, OnDestroy {
 	public selectedMenu: IMenu;
 	public menuItemWidth: string;
 	public menuItemTopStyle: string;
-	public menuWidthBreakPoint: number = 1600;
 	public menuLoaded: boolean = false;
 	public newLevels1: number[] = newLevels1;
 	public unsubscribe: any[] = [];

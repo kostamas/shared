@@ -4,6 +4,7 @@ import {MainHeaderService} from '../../../main-header.service';
 import {ModalService} from '../../../../modal-module/modal.service';
 import {IModal} from '../../../../../types/modal';
 import {SVG_ICONS} from '../../../../svg-icon-module/svg-icons.const';
+import {IMenuLink} from '../../../../../types/MenuLink';
 
 @Component({
   selector: 'app-favorite-side-bar',

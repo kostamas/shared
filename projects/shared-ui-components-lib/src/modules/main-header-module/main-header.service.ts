@@ -1,7 +1,8 @@
 import {Inject, Injectable, InjectionToken, Optional} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ApiService} from '../../../services/api.service';
 import {BehaviorSubject, Subject} from 'rxjs';
+import {IHeaderTab, IMainHeaderConfig} from '../../types/main-header';
+import {ApiSrv} from '../../services/providersTokens';
 
 export const MainHeaderConfig = new InjectionToken<any>(null);
 
@@ -18,7 +19,9 @@ export class MainHeaderService {
 	public helpSubMenuItems$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
 
-	constructor(private http: HttpClient, private apiService: ApiService, @Optional() @Inject(MainHeaderConfig) public mainHeaderConfig: IMainHeaderConfig) {
+	constructor(private http: HttpClient,
+              @Optional() @Inject(MainHeaderConfig) public mainHeaderConfig: IMainHeaderConfig,
+              @Inject(ApiSrv) public apiService: any) {
 		this.menuLoaded$.next(false);
 	}
 

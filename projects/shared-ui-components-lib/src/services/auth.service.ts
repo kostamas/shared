@@ -3,13 +3,12 @@ import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import * as jwtHandler from 'jwt-client';
 import {UserDetails} from '../modules/main-header-module/user-details';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {ApiService} from '../../services/api.service';
 import {tap} from 'rxjs/operators';
-import * as moment from 'moment';
+import * as momentNs from 'moment';
+const moment = momentNs;
 import {Router} from '@angular/router';
+import {ApiSrv, AuthConfig} from './providersTokens';
 import {IAuthConfig} from '../types/auth';
-
-export const AuthConfig = new InjectionToken<any>(null);
 
 @Injectable({
 	providedIn: 'root'
@@ -20,8 +19,9 @@ export class AuthService {
 	private userDetails: UserDetails;
 	private GET_TOKEN_URL: string = 'https://auth.hotelbeds.com/oauth/token';
 
-	constructor(public http: HttpClient, private apiService: ApiService, public router: Router,
-							@Optional() @Inject(AuthConfig) public authConfig: IAuthConfig) {
+	constructor(public http: HttpClient, public router: Router,
+							@Optional() @Inject(AuthConfig) public authConfig: IAuthConfig,
+              @Inject(ApiSrv) public apiService: any) {
 		this.isAuthenticated$ = new BehaviorSubject(this.tryAuthenticate());
 		this.logout$ = new Subject();
 	}
