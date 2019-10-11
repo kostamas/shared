@@ -58,7 +58,7 @@ pipeline:
 
 #   - name: DEV_ON_PREMISE
 #      jobs:
-#        - name: UPLOAD_ARTIFACT_DEV_ON_PREMISE_REP
+#        - name: UPLOAD_ARTIFACT_DEV_ON_PREMISE_RE
 #          type: nexus
 #          profiles: ON_PREMISE
 #          showName: Upload ZIP to DEV Nexus
