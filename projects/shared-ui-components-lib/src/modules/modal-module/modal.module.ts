@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {ModalService} from './modal.service';
+import {ModalService} from '../../lib/modal.service';
 
 @NgModule({
   providers: [

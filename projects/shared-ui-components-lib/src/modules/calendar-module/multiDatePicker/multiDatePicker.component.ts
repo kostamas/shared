@@ -3,14 +3,14 @@ import * as momentNs from 'moment';
 const moment = momentNs;
 import {fromEvent, merge, Subject} from 'rxjs';
 import {filter, switchMap, takeUntil, tap} from 'rxjs/operators';
-import {CalendarDatePickerService} from '../calendarDatePicker/calendarDatePicker.service';
+import {CalendarDatePickerService} from '../../../lib/calendarDatePicker.service';
 import {SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AbstractControl} from '@angular/forms';
 import {isEmpty} from '../../../utils/jsUtils';
 
-import {DATE_FORMAT} from '../../../services/shared-constants.service';
 import {ICalendarClickPosition, IFromTo} from '../../../types/calendar';
+import {DATE_FORMAT} from '../../../constants/shared.constant';
 
 @Component({
 	selector: 'app-multi-date-picker',

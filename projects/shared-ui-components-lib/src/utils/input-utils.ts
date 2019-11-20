@@ -1,4 +1,4 @@
-import {isDefineAndNotNull, undefinedAndNullToEmptyString} from '../../utils/jsUtils';
+import {isDefineAndNotNull, undefinedAndNullToEmptyString} from './jsUtils';
 import {isNumber} from 'util';
 
 

@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {FavoriteSideBarComponent} from './favorite-side-bar.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {FavoritesService} from '../../../favorites.service';
+import {FavoritesService} from '../../../../../lib/favorites.service';
 
 describe('FavoriteSideBarComponent', () => {
   let component: FavoriteSideBarComponent;

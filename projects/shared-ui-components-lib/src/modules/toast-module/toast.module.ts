@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {ToastComponent} from './toast/toast.component';
-import {ToastService} from './toast.service';
+import {ToastService} from '../../lib/toast.service';
 import {CommonModule} from '@angular/common';
 import {SvgIconModule} from '../svg-icon-module/svg-icon.module';
 

@@ -8,7 +8,7 @@ import {
 	ViewChild,
 	ViewEncapsulation
 } from '@angular/core';
-import {SelectInputService} from '../../select-input.service';
+import {SelectInputService} from '../../../../../lib/select-input.service';
 
 @Component({
 	selector: 'app-select-regular-options',
@@ -18,7 +18,7 @@ import {SelectInputService} from '../../select-input.service';
 })
 export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
 	private stringToSearch: string = '';
-	private suggestedIndex: number = -1;
+	public suggestedIndex: number = -1;
 	private timeout: any = null;
 	private optionHeight: number = 39;
 
@@ -38,7 +38,7 @@ export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	@HostListener('document:keyup', ['$event'])
+	@HostListener('document:keyup')
 	keyUpHandler(keyEvent: KeyboardEvent): void {
 		clearTimeout(this.timeout);
 		this.timeout = setTimeout(this.clearStringSuggestion, 1000);
@@ -111,7 +111,7 @@ export class SelectRegularOptionsComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	selectValue(index: string): void {
+	selectValue(index: any): void {
 		this.selectInputService.resetOptionsList(this.data.selectList);
 		this.data.selectList[index].isSelected = true;
 		this.data.onSelectItem(index, this.data.selectList[index].id, true);

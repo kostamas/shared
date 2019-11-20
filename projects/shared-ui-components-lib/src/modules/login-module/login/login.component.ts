@@ -1,10 +1,10 @@
 import {Component, Inject, InjectionToken, OnInit, Optional} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../../services/auth.service';
+import {AuthService} from '../../../lib/auth.service';
 import {Router} from '@angular/router';
 import {IPopupData} from '../../../types/modal';
-import {CommonService} from '../../../services/common.service';
-import {PopupService} from '../../popup-module/popup.service';
+import {CommonService} from '../../../lib/common.service';
+import {PopupService} from '../../../lib/popup.service';
 
 export const AppService = new InjectionToken<any>(null);
 

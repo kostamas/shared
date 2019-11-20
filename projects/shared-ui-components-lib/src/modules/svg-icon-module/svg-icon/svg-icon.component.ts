@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import {SafeHtml} from '@angular/platform-browser';
-import {SvgIconService} from '../svg-icons.service';
+import {SvgIconService} from '../../../lib/svg-icons.service';
 
 @Component({
   selector: 'app-svg-icon',

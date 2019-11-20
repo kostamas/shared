@@ -1,4 +1,4 @@
-import {NEW_DISTRIBUTION_RULES_ID, NEW_SEARCH_SIMULATOR_ID} from '../main-header.const';
+import {NEW_DISTRIBUTION_RULES_ID, NEW_SEARCH_SIMULATOR_ID} from '../../../constants/main-header.constant';
 
 export const searchSimulatorLevel4 = {name: 'Search Simulator', id: NEW_SEARCH_SIMULATOR_ID};
 export const distributionRulesLevel4 = {name: 'New Distribution Rules', id: NEW_DISTRIBUTION_RULES_ID};

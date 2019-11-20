@@ -5,7 +5,7 @@ import {fromEvent, Subject} from 'rxjs';
 import * as momentNs from 'moment';
 const moment = momentNs;
 import {filter, switchMap, takeUntil, tap} from 'rxjs/operators';
-import {CalendarDatePickerService} from './calendarDatePicker.service';
+import {CalendarDatePickerService} from '../../../lib/calendarDatePicker.service';
 import {isDefineAndNotNull} from '../../../utils/jsUtils';
 import {ISvgIcons, SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 import {ICalendarClickPosition, ICalendarDay, IFromTo} from '../../../types/calendar';

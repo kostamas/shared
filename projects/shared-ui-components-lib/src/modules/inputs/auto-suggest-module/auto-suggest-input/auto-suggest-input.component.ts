@@ -5,11 +5,11 @@ import {
 import {fromEvent, Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, switchMap, takeUntil, tap} from 'rxjs/operators';
 import {SVG_ICONS} from '../../../svg-icon-module/svg-icons.const';
-import {ModalService} from '../../../modal-module/modal.service';
+import {ModalService} from '../../../../lib/modal.service';
 import {AutoSuggestResultsComponent} from '../auto-suggest-results/auto-suggest-results.component';
 import {IModal, IModalConfig} from '../../../../types/modal';
 import {IAutoSuggestValidationStatus} from '../../../../types/auto-suggest';
-import {SvgIconService} from '../../../svg-icon-module/svg-icons.service';
+import {SvgIconService} from '../../../../lib/svg-icons.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {ISelectItem} from '../../../../types/ISelect';
 
@@ -146,7 +146,7 @@ export class AutoSuggestInputComponent implements OnInit, AfterViewInit, OnDestr
 		}
 	}
 
-	@HostListener('window:resize', ['$event'])
+	@HostListener('window:resize')
 	initializeLeftPane(): void {
 		this.closeModal();
 	}
@@ -350,7 +350,7 @@ export class AutoSuggestInputComponent implements OnInit, AfterViewInit, OnDestr
 			});
 		}
 	}
-	
+
 	addCloseButtonToResultsModal(autoSuggestResultsElement: HTMLElement, verticalDirection: string, inputWidth: number): void {
 		this.closeButtonWrapperElement = document.createElement('div');
 		this.closeButtonWrapperElement.style.left = (inputWidth - 26.5) + 'px';
