@@ -91,7 +91,7 @@ const purpleFlowerLastPageTemplate = `
 	</div>`;
 
 
-function appendToBody(element, marginFromElement) {
+function appendToBody(element, marginFromElement?) {
   if (document.body) {
     document.body.appendChild(element);
     if (marginFromElement) {
@@ -238,7 +238,7 @@ const StorageContainer = (function () {
 }());
 
 const StoryTooltip = (function () {
-  function StoryTooltip(template, timeout, isAutoScrolling) {
+  function StoryTooltip(template, timeout, isAutoScrolling?) {
     this.marginFromContainer = 25;
     this.containerClass = 'story-tool-tip-container ';
     this.timeout = timeout ? timeout : 5000;
@@ -348,7 +348,7 @@ const StoryTooltip = (function () {
     if (template === null) {
       return null;
     }
-    const element = getElementByHtmlTemplate(template);
+    const element: any = getElementByHtmlTemplate(template);
     element.style.position = 'absolute';
     if (element) {
       appendToBody(element);
@@ -592,7 +592,7 @@ const WebStory = (function () {
 
       return _this.storyContainer.moveNext().then(function (pageInfo) {
 
-        const checkbox = document.querySelector('.story-neverTell');
+        const checkbox = document.querySelector('.story-neverTell') as HTMLInputElement;
 
         checkbox.checked = _this.neverTell;
         _this.isLastPage = pageInfo.isLast;
@@ -611,7 +611,7 @@ const WebStory = (function () {
         _this.removeOldStoryAction();
         _this.storyContainer.moveNext().then(function (pageInfo) {
 
-          const checkbox = document.querySelector('.story-neverTell');
+          const checkbox = document.querySelector('.story-neverTell') as HTMLInputElement;
 
           checkbox.checked = _this.neverTell;
           _this.isLastPage = pageInfo.isLast;
@@ -628,7 +628,7 @@ const WebStory = (function () {
       if (!_this.isFirstPage) {
         _this.storyContainer.moveBack().then(function (pageInfo) {
 
-          const checkbox = document.querySelector('.story-neverTell');
+          const checkbox = document.querySelector('.story-neverTell') as HTMLInputElement;
 
           checkbox.checked = _this.neverTell;
           _this.isFirstPage = pageInfo.isLast;

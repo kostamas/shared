@@ -59,3 +59,5 @@ export * from './utils/input-utils';
 export * from './pipes/ellipsis.pipe';
 export * from './pipes/filter.pipe';
 
+/* --- WebStory --- */
+export * from './libs/webStory';
