@@ -1,6 +1,6 @@
 
 pipeline:
-  name: common-back-components-services
+  name: common-back-components-lib
   packageType: zip
   useNewEnvironments: true
   profiles:
@@ -20,7 +20,7 @@ pipeline:
           command: run build
           datadog:
           tags:
-              - pipeline=common-back-components-services
+              - pipeline=common-back-components-lib
               - stage=BUILD
 
         - name: PUBLISH
@@ -30,10 +30,10 @@ pipeline:
             - AWS
           showName: Publish the shared UI components library to Nexus
           jenkinsAgentTags: AWS
-          command: run publish-services
+          command: run publish-lib
           datadog:
           tags:
-              - pipeline=common-back-components-services
+              - pipeline=common-back-components-lib
               - stage=PUBLISH
 
 #        - name: CODE_ANALYSIS
@@ -53,7 +53,7 @@ pipeline:
 #          command: run package --version ${RPM_VERSION} --release ${RPM_RELEASE}
 #          sharedArtifacts:
 #            - UPLOAD_ARTIFACT_DEV_ON_PREMISE_REPO:
-#              - 'brass_build/RPMS/noarch/common-back-components-services-${RPM_VERSION}-${RPM_RELEASE}.noarch.rpm'
+#              - 'brass_build/RPMS/noarch/common-back-components-lib-${RPM_VERSION}-${RPM_RELEASE}.noarch.rpm'
 
 
 #   - name: DEV_ON_PREMISE
@@ -75,8 +75,8 @@ pipeline:
 #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
 #            jobOptions:
 #            - environment=devbtmadrid
-#            - service_name=common-back-components-services
-#            - bucket_name=common-back-components-services-bucket
+#            - service_name=common-back-components-lib
+#            - bucket_name=common-back-components-lib-bucket
 #            - version=${BUILD_VERSION}
 
 #        - name: E2E_SMOKE_TEST_DEV_ON_PREMISE
@@ -114,8 +114,8 @@ pipeline:
 #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
 #            jobOptions:
 #            - environment=testbtmadrid
-#            - service_name=common-back-components-services
-#            - bucket_name=common-back-components-services-bucket
+#            - service_name=common-back-components-lib
+#            - bucket_name=common-back-components-lib-bucket
 #            - version=${BUILD_VERSION}
 
 #        - name: E2E_SMOKE_TEST_TEST_ON_PREMISE
@@ -153,8 +153,8 @@ pipeline:
 #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
 #            jobOptions:
 #            - environment=stagebtmadrid
-#            - service_name=common-back-components-services
-#            - bucket_name=common-back-components-services-bucket
+#            - service_name=common-back-components-lib
+#            - bucket_name=common-back-components-lib-bucket
 #           - version=${BUILD_VERSION}
 
 #        - name: E2E_SMOKE_TEST_STAGE_ON_PREMISE
@@ -196,8 +196,8 @@ pipeline:
 #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
 #            jobOptions:
 #            - environment=livebtmadrid
-#            - service_name=common-back-components-services
-#            - bucket_name=common-back-components-services-bucket
+#            - service_name=common-back-components-lib
+#            - bucket_name=common-back-components-lib-bucket
 #            - version=${BUILD_VERSION}
 
 #        - name: E2E_SMOKE_TEST_LIVE_ON_PREMISE
@@ -239,8 +239,8 @@ pipeline:
 #            jobIdentifier: 68f21d7c-02ac-465f-83d5-7d197dbc2f7c
 #            jobOptions:
 #            - environment=intbtmadrid
-#            - service_name=common-back-components-services
-#            - bucket_name=common-back-components-services-bucket
+#            - service_name=common-back-components-lib
+#            - bucket_name=common-back-components-lib-bucket
 #            - version=${BUILD_VERSION}
 
 #        - name: E2E_SMOKE_TEST_INT_ON_PREMISE
