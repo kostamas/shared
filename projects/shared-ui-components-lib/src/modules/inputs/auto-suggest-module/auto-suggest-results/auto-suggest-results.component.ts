@@ -30,44 +30,6 @@ export class AutoSuggestResultsComponent implements OnInit {
 		this.resultHeight = resultElement && resultElement.clientHeight || this.resultHeight;
 	}
 
-	@HostListener('document:keyup', ['$event'])
-	keyUpHandler(keyEvent: KeyboardEvent): void {
-		const key = keyEvent.key;
-
-		switch (key.toUpperCase()) {
-			case 'ENTER':
-				if (this.selectedIndex < 0) {
-					return;
-				}
-				this.data.setValue(this.data.results[this.selectedIndex], true);
-				break;
-			case 'ARROWDOWN':
-				this.nextIndex();
-				break;
-			case 'ARROWUP':
-				this.previousIndex();
-				break;
-			case 'ARROWLEFT':
-				break;
-			case 'ARROWRIGHT':
-				break;
-			case 'ESCAPE':
-				break;
-			case 'PAGEUP':
-				break;
-			case 'PAGEDOWN':
-				break;
-			case 'HOME':
-				this.firstIndex();
-				break;
-			case 'END':
-				this.endIndex();
-				break;
-			case ' ':
-				break;
-		}
-	}
-
 	nextIndex(): void {
 		if (!this.isHovered && this.selectedIndex + 1 !== this.data.results.length) {
 			const nextIndex = this.selectedIndex + 1;
