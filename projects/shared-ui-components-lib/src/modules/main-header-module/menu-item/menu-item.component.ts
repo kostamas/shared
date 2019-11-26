@@ -1,5 +1,5 @@
 import {Component, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {MainHeaderService} from '../../../lib/main-header.service';
+import {MainHeaderService} from '../../../services/main-header.service';
 import {newLevels1} from '../../../constants/main-header.constant';
 import {IHeaderTab, IMenu} from '../../../types/main-header';
 

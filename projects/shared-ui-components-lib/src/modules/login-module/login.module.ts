@@ -1,12 +1,12 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {LoginComponent} from './login/login.component';
-import {AuthService} from '../../lib/auth.service';
+import {AuthService} from '../../services/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {LoaderModule} from '../loader-module/loader.module';
 import {PopupModule} from '../popup-module/popup.module';
 import {ILoginConfigConstructor} from '../../types/auth';
-import {AuthConfig} from '../../lib/providersTokens';
+import {AuthConfig} from '../../services/providersTokens';
 
 @NgModule({
   imports: [

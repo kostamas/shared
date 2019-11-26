@@ -1,12 +1,12 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {MainHeaderConfig, MainHeaderService} from '../../lib/main-header.service';
+import {MainHeaderConfig, MainHeaderService} from '../../services/main-header.service';
 import {MainHeaderComponent} from './main-header.component';
 import {SubMenuItemComponent} from './sub-menu-item/sub-menu-item.component';
 import {MenuItemComponent} from './menu-item/menu-item.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {SideBarMenuComponent} from './side-bar-menu/side-bar-menu.component';
 import {FavoriteSideBarComponent} from './side-bar-menu/side-bar-components/favorite-side-bar/favorite-side-bar.component';
-import {FavoritesService} from '../../lib/favorites.service';
+import {FavoritesService} from '../../services/favorites.service';
 import {SvgIconModule} from '../svg-icon-module/svg-icon.module';
 import { HelpSideBarComponent } from './side-bar-menu/side-bar-components/help-side-bar/help-side-bar.component';
 import {IMainHeaderConfigConstructor} from '../../types/main-header';

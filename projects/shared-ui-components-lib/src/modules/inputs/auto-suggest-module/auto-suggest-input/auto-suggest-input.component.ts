@@ -5,11 +5,11 @@ import {
 import {fromEvent, Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, switchMap, takeUntil, tap} from 'rxjs/operators';
 import {SVG_ICONS} from '../../../svg-icon-module/svg-icons.const';
-import {ModalService} from '../../../../lib/modal.service';
+import {ModalService} from '../../../../services/modal.service';
 import {AutoSuggestResultsComponent} from '../auto-suggest-results/auto-suggest-results.component';
 import {IModal, IModalConfig} from '../../../../types/modal';
 import {IAutoSuggestValidationStatus} from '../../../../types/auto-suggest';
-import {SvgIconService} from '../../../../lib/svg-icons.service';
+import {SvgIconService} from '../../../../services/svg-icons.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {ISelectItem} from '../../../../types/ISelect';
 

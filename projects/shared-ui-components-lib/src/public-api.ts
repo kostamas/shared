@@ -1,5 +1,5 @@
 /*
- * Public API Surface of shared-ui-components-lib
+ * Public API Surface of shared-ui-components-services
  */
 
 /* --- Modules --- */
@@ -22,21 +22,21 @@ export * from './modules/main-header-module/main-header.module';
 export * from './pipes/pipesModule.module';
 
 /* --- Services --- */
-export * from './lib/popup.service';
-export * from './lib/modal.service';
-export * from './lib/main-header.service';
-export * from './lib/analytics.service';
-export * from './lib/audit.service';
-export * from './lib/auth.service';
-export * from './lib/common.service';
-export * from './lib/error-interceptor';
-export * from './lib/permissions.service';
-export * from './lib/providersTokens';
-export * from './lib/token-interceptor';
-export * from './lib/wrapper-connector.service';
-export * from './lib/toast.service';
-export * from './lib/select-input.service';
-export * from './lib/calendarDatePicker.service';
+export * from './services/popup.service';
+export * from './services/modal.service';
+export * from './services/main-header.service';
+export * from './services/analytics.service';
+export * from './services/audit.service';
+export * from './services/auth.service';
+export * from './services/common.service';
+export * from './services/error-interceptor';
+export * from './services/permissions.service';
+export * from './services/providersTokens';
+export * from './services/token-interceptor';
+export * from './services/wrapper-connector.service';
+export * from './services/toast.service';
+export * from './services/select-input.service';
+export * from './services/calendarDatePicker.service';
 
 /* --- Components --- */
 export * from './modules/login-module/login/login.component';

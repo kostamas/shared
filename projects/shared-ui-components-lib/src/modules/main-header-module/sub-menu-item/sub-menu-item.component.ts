@@ -1,6 +1,6 @@
 import {Component, ElementRef, HostListener, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
-import {FavoritesService} from '../../../lib/favorites.service';
-import {MainHeaderService} from '../../../lib/main-header.service';
+import {FavoritesService} from '../../../services/favorites.service';
+import {MainHeaderService} from '../../../services/main-header.service';
 import {level4NewLinksIds} from '../new-links/level4';
 import {IMenu} from '../../../types/main-header';
 import {IMenuLink} from '../../../types/MenuLink';

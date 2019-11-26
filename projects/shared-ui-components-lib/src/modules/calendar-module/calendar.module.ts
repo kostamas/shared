@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CalendarDatePickerService} from '../../lib/calendarDatePicker.service';
+import {CalendarDatePickerService} from '../../services/calendarDatePicker.service';
 import {CalendarDateRangePickerComponent} from './calendarDatePicker/calendarDateRangePicker.component';
 import {MultiDatePickerComponent} from './multiDatePicker/multiDatePicker.component';
 import {BrowserModule} from '@angular/platform-browser';

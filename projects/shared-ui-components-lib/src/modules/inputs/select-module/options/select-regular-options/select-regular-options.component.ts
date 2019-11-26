@@ -8,7 +8,7 @@ import {
 	ViewChild,
 	ViewEncapsulation
 } from '@angular/core';
-import {SelectInputService} from '../../../../../lib/select-input.service';
+import {SelectInputService} from '../../../../../services/select-input.service';
 
 @Component({
 	selector: 'app-select-regular-options',

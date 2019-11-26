@@ -1,16 +1,16 @@
 import {
 	AfterViewInit, ChangeDetectorRef, Component, HostListener, NgZone, OnDestroy, OnInit, ViewChild, ViewEncapsulation
 } from '@angular/core';
-import {AuthService} from '../../lib/auth.service';
+import {AuthService} from '../../services/auth.service';
 import {DatePipe} from '@angular/common';
-import {MainHeaderService} from '../../lib/main-header.service';
+import {MainHeaderService} from '../../services/main-header.service';
 import {filter, tap} from 'rxjs/operators';
 import {UserDetails} from './user-details';
-import {FavoritesService} from '../../lib/favorites.service';
-import {CommonService} from '../../lib/common.service';
+import {FavoritesService} from '../../services/favorites.service';
+import {CommonService} from '../../services/common.service';
 import {IHeaderTab} from '../../types/main-header';
 import {IMenuLink} from '../../types/MenuLink';
-import {WrapperConnectorService} from '../../lib/wrapper-connector.service';
+import {WrapperConnectorService} from '../../services/wrapper-connector.service';
 
 @Component({
 	selector: 'app-main-header',

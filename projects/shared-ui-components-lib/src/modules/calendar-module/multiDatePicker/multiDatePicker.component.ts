@@ -3,7 +3,7 @@ import * as momentNs from 'moment';
 const moment = momentNs;
 import {fromEvent, merge, Subject} from 'rxjs';
 import {filter, switchMap, takeUntil, tap} from 'rxjs/operators';
-import {CalendarDatePickerService} from '../../../lib/calendarDatePicker.service';
+import {CalendarDatePickerService} from '../../../services/calendarDatePicker.service';
 import {SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AbstractControl} from '@angular/forms';

@@ -2,11 +2,11 @@ import {
 	AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild, ViewEncapsulation,
 	OnDestroy
 } from '@angular/core';
-import {ModalService} from '../../../lib/modal.service';
+import {ModalService} from '../../../services/modal.service';
 import {FavoriteSideBarComponent} from './side-bar-components/favorite-side-bar/favorite-side-bar.component';
-import {FavoritesService} from '../../../lib/favorites.service';
+import {FavoritesService} from '../../../services/favorites.service';
 import {IModal, IModalConfig} from '../../../types/modal';
-import {MainHeaderService} from '../../../lib/main-header.service';
+import {MainHeaderService} from '../../../services/main-header.service';
 import {HelpSideBarComponent} from './side-bar-components/help-side-bar/help-side-bar.component';
 
 @Component({
