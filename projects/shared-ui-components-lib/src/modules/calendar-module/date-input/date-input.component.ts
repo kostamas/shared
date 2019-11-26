@@ -12,16 +12,16 @@ import {
 	ViewEncapsulation
 } from '@angular/core';
 import {ISvgIcons, SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
-import {CalendarDatePickerService} from '../calendarDatePicker/calendarDatePicker.service';
+import {CalendarDatePickerService} from '../../../lib/calendarDatePicker.service';
 import * as momentNs from 'moment';
 const moment = momentNs;
 import {IValidationStatus} from '../../../types/ISelect';
 import {Subject} from 'rxjs';
-import {DATE_FORMAT} from '../../../services/shared-constants.service';
 import {IModal, IModalConfig} from '../../../types/modal';
-import {ModalService} from '../../modal-module/modal.service';
+import {ModalService} from '../../../lib/modal.service';
 import {MultiDatePickerWrapperComponent} from '../multi-date-picker-wrapper/multi-date-picker-wrapper.component';
 import {CalendarDateRangePickerComponent} from '../calendarDatePicker/calendarDateRangePicker.component';
+import {DATE_FORMAT} from '../../../constants/shared.constant';
 
 @Component({
 	selector: 'app-date-input',
@@ -90,7 +90,7 @@ export class DateInputComponent implements OnInit, OnChanges {
 		}
 	}
 
-	@HostListener('window:click', ['$event'])
+  @HostListener('document:click', ['$event'])
 	documentClickHandler = (event: any) => {
 		const {dateInputElement} = this;
 		if (!dateInputElement.nativeElement.contains(event.target) && !this.calendarWrapperElement.nativeElement.contains(event.target)) {

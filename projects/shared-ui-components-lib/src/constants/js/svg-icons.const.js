@@ -1,50 +1,5 @@
-export interface ISvgIcons {
-	excel: string;
-	left_arrow_in_box: string;
-	right_arrow_in_box: string;
-	hotel: string;
-	calendar: string;
-	noResults: string;
-	search: string;
-	childAge: string;
-	next: string;
-	back: string;
-	round_close: string;
-	arrowDown: string;
-	save: string;
-	bcSeparator: string;
-	client: string;
-	chain: string;
-	matrix: string;
-	modify_edit: string;
-	modify_delete: string;
-	modify_duplicate: string;
-	modify_history: string;
-	regular_hotel: string;
-	bin: string;
-	info: string;
-	cancel: string;
-	checkMark: string;
-	close_toast: string;
-	plus: string;
-	eye: string;
-	season_calendar: string;
-	down_arrow_collapse: string;
-	right_arrow_display: string;
-	disconnect: string;
-	link: string;
-	moon: string;
-	contract: string;
-	errorTriangle: string;
-	technicalErrorTriangle: string;
-	downloadIcon: string;
-	publish: string;
-	publish_x: string;
-	publish_checkMark: string;
-  pencil: string;
-}
 
-export const SVG_ICONS: ISvgIcons = {
+export const SVG_ICONS = {
 	excel: 'excel',
 	left_arrow_in_box: 'left_arrow_in_box',
 	right_arrow_in_box: 'right_arrow_in_box',
@@ -86,6 +41,5 @@ export const SVG_ICONS: ISvgIcons = {
 	downloadIcon: 'downloadIcon',
 	publish: 'publish',
 	publish_x: 'publish_x',
-	publish_checkMark: 'publish_checkMark',
-  pencil: 'publish_checkMark',
+	publish_checkMark: 'publish_checkMark'
 };

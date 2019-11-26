@@ -2,11 +2,11 @@ import {
 	AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild, ViewEncapsulation,
 	OnDestroy
 } from '@angular/core';
-import {ModalService} from '../../modal-module/modal.service';
+import {ModalService} from '../../../lib/modal.service';
 import {FavoriteSideBarComponent} from './side-bar-components/favorite-side-bar/favorite-side-bar.component';
-import {FavoritesService} from '../favorites.service';
+import {FavoritesService} from '../../../lib/favorites.service';
 import {IModal, IModalConfig} from '../../../types/modal';
-import {MainHeaderService} from '../main-header.service';
+import {MainHeaderService} from '../../../lib/main-header.service';
 import {HelpSideBarComponent} from './side-bar-components/help-side-bar/help-side-bar.component';
 
 @Component({
@@ -25,31 +25,31 @@ export class SideBarMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 	unsubscribe: any[] = [];
 	menuStyle: any = {};
 	helpItems: any[];
-	
+
 	constructor(private modalService: ModalService, public favoritesService: FavoritesService, private mainHeaderService: MainHeaderService) {
 	}
-	
+
 	@ViewChild('favoriteIcon') favoriteIcon: ElementRef;
 	@ViewChild('helpIcon') helpIcon: ElementRef;
-	
+
 	ngOnInit(): void {
 		this.unsubscribe.push(this.favoritesService.favoriteLoaded.subscribe(() => {
 			if (this.loadModal && this.modal) {
 				this.modal.componentWrapper.style.display = 'block';
 			}
 		}));
-		
+
 		this.unsubscribe.push(this.mainHeaderService.adfWindowWidth$.subscribe((width: number) =>
 		{
 			this.menuStyle = {marginRight: `${window.innerWidth - width}px`};
 		}));
-		
+
 		this.favoritesService.favoritesList.subscribe(results => {
 			this.hasFavoritesInList = results && results.length > 0;
 		});
-		
+
 		this.favoritesService.getFavorites();
-		
+
 		if (this.mainHeaderService.mainHeaderConfig && this.mainHeaderService.mainHeaderConfig.sideBarCustomClass) {
 			this.sideBarClass += (' ' + this.mainHeaderService.mainHeaderConfig.sideBarCustomClass);
 		}
@@ -57,11 +57,11 @@ export class SideBarMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 			this.helpItems = items;
 		});
 	}
-	
+
 	ngAfterViewInit(): void {
 	}
-	
-	
+
+
 	openFavoriteModal(): void {
 		const {x, y, left, top} = this.favoriteIcon.nativeElement.getBoundingClientRect();
 		this.modalConfig = {
@@ -100,24 +100,24 @@ export class SideBarMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 		this.modal.componentWrapper.style.display = 'block';
 	}
 
-	
+
 	favoriteSrc(): string {
 		const filePath: string = 'assets/icons/images/';
 		return this.hasFavoritesInList ? filePath + 'ico_favorites_on_peq.png' : filePath + 'ico_favorites_peq.png';
 	}
-	
-	@HostListener('window:resize', ['$event'])
+
+	@HostListener('window:resize')
 	onResize(event: any): void {
 		if (this.mainHeaderService && this.mainHeaderService.mainHeaderConfig && this.mainHeaderService.mainHeaderConfig.calcSideBarClass) {
 			this.sideBarClass = this.mainHeaderService.mainHeaderConfig.calcSideBarClass(event);
 		}
-		
+
 		if (this.loadModal && this.favoriteIcon.nativeElement) {
 			const {x, y, left, top} = this.favoriteIcon.nativeElement.getBoundingClientRect();
 			this.modal.updateStyle({top: (y || top) + 25 + 'px', left: (x || left) - 335 + 'px'});
 		}
 	}
-	
+
 	ngOnDestroy(): void {
 		this.unsubscribe.forEach(subscription => subscription.unsubscribe());
 	}

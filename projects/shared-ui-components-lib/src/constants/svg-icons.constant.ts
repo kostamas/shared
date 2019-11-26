@@ -41,7 +41,6 @@ export interface ISvgIcons {
 	publish: string;
 	publish_x: string;
 	publish_checkMark: string;
-  pencil: string;
 }
 
 export const SVG_ICONS: ISvgIcons = {
@@ -86,6 +85,5 @@ export const SVG_ICONS: ISvgIcons = {
 	downloadIcon: 'downloadIcon',
 	publish: 'publish',
 	publish_x: 'publish_x',
-	publish_checkMark: 'publish_checkMark',
-  pencil: 'publish_checkMark',
+	publish_checkMark: 'publish_checkMark'
 };

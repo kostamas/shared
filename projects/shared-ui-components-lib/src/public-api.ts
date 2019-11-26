@@ -8,6 +8,7 @@ export * from './modules/calendar-module/calendar.module';
 export * from './modules/ellipse-module/ellipse.module';
 export * from './modules/inputs/auto-suggest-module/auto-suggest.module';
 export * from './modules/inputs/input-with-symbol-module/input-with-symbol.module';
+export * from './modules/inputs/input-with-error/input-with-error.module';
 export * from './modules/inputs/select-module/select.module';
 export * from './modules/inputs/seven-days-input-module/seven-days-selector.module';
 export * from './modules/loader-module/loader.module';
@@ -18,29 +19,45 @@ export * from './modules/tooltip-module/tooltip.module';
 export * from './modules/popup-module/popup.module';
 export * from './modules/login-module/login.module';
 export * from './modules/main-header-module/main-header.module';
+export * from './pipes/pipesModule.module';
 
 /* --- Services --- */
-export * from './modules/popup-module/popup.service';
-export * from './modules/modal-module/modal.service';
-export * from './modules/main-header-module/main-header.service';
+export * from './lib/popup.service';
+export * from './lib/modal.service';
+export * from './lib/main-header.service';
+export * from './lib/analytics.service';
+export * from './lib/audit.service';
+export * from './lib/auth.service';
+export * from './lib/common.service';
+export * from './lib/error-interceptor';
+export * from './lib/permissions.service';
+export * from './lib/providersTokens';
+export * from './lib/token-interceptor';
+export * from './lib/wrapper-connector.service';
+export * from './lib/toast.service';
+export * from './lib/select-input.service';
+export * from './lib/calendarDatePicker.service';
 
+/* --- Components --- */
+export * from './modules/login-module/login/login.component';
+export * from './modules/inputs/select-module/options/multi-select-colorful-options/multi-select-colorful-options.component';
+export * from './modules/inputs/select-module/options/select-regular-options/select-regular-options.component';
 
 /* --- Constants --- */
 export * from './constants/currencies.constant';
+export * from './constants/select-input.constant';
 export * from './constants/shared.constant';
+export * from './constants/main-header.constant';
 export * from './modules/popup-module/popup.constant';
 export * from './modules/svg-icon-module/svg-icons.const';
 
-
-/* --- Libs --- */
-export * from './libs/webStory';
-
-
 /* --- Utils --- */
 export * from './utils/jsUtils';
-export * from './modules/inputs/input-utils';
-
+export * from './utils/input-utils';
 
 /* --- Pipes --- */
 export * from './pipes/ellipsis.pipe';
 export * from './pipes/filter.pipe';
+
+/* --- WebStory --- */
+export * from './libs/webStory';

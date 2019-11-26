@@ -1,16 +1,16 @@
 import {
 	AfterViewInit, ChangeDetectorRef, Component, HostListener, NgZone, OnDestroy, OnInit, ViewChild, ViewEncapsulation
 } from '@angular/core';
-import {AuthService} from '../../services/auth.service';
+import {AuthService} from '../../lib/auth.service';
 import {DatePipe} from '@angular/common';
-import {MainHeaderService} from './main-header.service';
+import {MainHeaderService} from '../../lib/main-header.service';
 import {filter, tap} from 'rxjs/operators';
 import {UserDetails} from './user-details';
-import {FavoritesService} from './favorites.service';
-import {CommonService} from '../../services/common.service';
+import {FavoritesService} from '../../lib/favorites.service';
+import {CommonService} from '../../lib/common.service';
 import {IHeaderTab} from '../../types/main-header';
 import {IMenuLink} from '../../types/MenuLink';
-import {WrapperConnectorService} from '../../services/wrapper-connector.service';
+import {WrapperConnectorService} from '../../lib/wrapper-connector.service';
 
 @Component({
 	selector: 'app-main-header',
@@ -102,7 +102,7 @@ export class MainHeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 		}
 	}
 
-	@HostListener('window:resize', ['$event'])
+	@HostListener('window:resize')
 	onResize(): void {
 		if (!this.lockHeaderResize) {
 			this.lockHeaderResize = true;

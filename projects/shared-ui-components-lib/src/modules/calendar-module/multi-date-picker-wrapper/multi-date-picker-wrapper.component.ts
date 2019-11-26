@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CalendarDatePickerService} from '../calendarDatePicker/calendarDatePicker.service';
+import {CalendarDatePickerService} from '../../../lib/calendarDatePicker.service';
 import {IFromTo} from '../../../types/calendar';
 
 @Component({

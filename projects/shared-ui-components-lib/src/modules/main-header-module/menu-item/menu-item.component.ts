@@ -1,6 +1,6 @@
 import {Component, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {MainHeaderService} from '../main-header.service';
-import {newLevels1} from '../main-header.const';
+import {MainHeaderService} from '../../../lib/main-header.service';
+import {newLevels1} from '../../../constants/main-header.constant';
 import {IHeaderTab, IMenu} from '../../../types/main-header';
 
 @Component({
@@ -39,7 +39,7 @@ export class MenuItemComponent implements OnInit, OnChanges, OnDestroy {
 		}
 	}
 
-	@HostListener('window:resize', ['$event'])
+	@HostListener('window:resize')
 	onResize(): void {
 		this.setMenuPosition();
 		this.animateMenuCursor(this.headerTabElement, this.mainHeaderElement);

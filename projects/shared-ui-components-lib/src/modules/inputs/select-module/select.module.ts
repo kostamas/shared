@@ -5,7 +5,7 @@ import {MultiSelectColorfulOptionsComponent} from './options/multi-select-colorf
 import {SelectRegularOptionsComponent} from './options/select-regular-options/select-regular-options.component';
 import {SvgIconModule} from '../../svg-icon-module/svg-icon.module';
 import {ButtonsModule} from '../../buttons-module/buttons.module';
-import {SelectInputService} from './select-input.service';
+import {SelectInputService} from '../../../lib/select-input.service';
 import {EllipseModule} from '../../ellipse-module/ellipse.module';
 import {TooltipModule} from '../../tooltip-module/tooltip.module';
 import {FormsModule} from '@angular/forms';

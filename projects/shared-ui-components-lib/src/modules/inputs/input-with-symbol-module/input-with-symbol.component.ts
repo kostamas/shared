@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
-import {isRangeValue, preventPasteValue} from '../input-utils';
+import {isRangeValue, preventPasteValue} from '../../../utils/input-utils';
 
 @Component({
 	selector: 'app-input-with-symbol',

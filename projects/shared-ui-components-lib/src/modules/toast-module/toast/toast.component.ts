@@ -20,7 +20,7 @@ export class ToastComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
-	@HostListener('window:click', ['$event'])
+	@HostListener('window:click')
 	documentClickHandler = (event: any) => {
 		this.closeToast();
 	}
