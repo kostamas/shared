@@ -407,7 +407,6 @@ export class SelectInputComponent implements OnInit, OnChanges, OnDestroy {
     };
   }
 
-
   @HostListener('document:keydown', ['$event'])
   scrollHandling($event: any): void {
     // space and arrow keys
