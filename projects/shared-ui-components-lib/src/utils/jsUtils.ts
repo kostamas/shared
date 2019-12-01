@@ -3,9 +3,12 @@ export const deepCopy = (obj) => {
 		return obj;
 	} else if (Array.isArray(obj)) {
 		const clonedArr = [];
-		obj.forEach((element) => {
-			clonedArr.push(deepCopy(element));
+    console.log('obj', obj);
+    obj.forEach((element) => {
+      console.log('element', element);
+      clonedArr.push(deepCopy(element));
 		});
+    console.log('clonedArr', clonedArr);
 		return clonedArr;
 	} else {
 		const clonedObj = {};
