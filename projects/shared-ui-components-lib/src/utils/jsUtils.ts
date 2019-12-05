@@ -6,12 +6,9 @@ export class JsUtils {
       return obj;
     } else if (Array.isArray(obj)) {
       const clonedArr = [];
-      console.log('obj', obj);
       obj.forEach((element) => {
-        console.log('element', element);
         clonedArr.push(JsUtils.deepCopy(element));
       });
-      console.log('clonedArr', clonedArr);
       return clonedArr;
     } else {
       const clonedObj = {};
