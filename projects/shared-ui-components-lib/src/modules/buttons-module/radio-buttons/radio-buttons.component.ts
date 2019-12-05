@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {IRadioButton} from '../../../types/buttons';
-import {isDefined} from '../../../utils/jsUtils';
+import {JsUtils} from '../../../utils/jsUtils';
 
 @Component({
 	selector: 'app-radio-buttons',
@@ -21,7 +21,7 @@ export class RadioButtonsComponent implements OnInit {
 	}
 
 	clickHandler(index: number): void {
-		if (!isDefined(this.radioButtons[index].isSelected) || this.radioButtons[index].isSelected === false) {
+		if (!JsUtils.isDefined(this.radioButtons[index].isSelected) || this.radioButtons[index].isSelected === false) {
 			this.radioButtons.forEach((btn: IRadioButton) => btn.isSelected = false);
 			this.radioButtons[index].isSelected = true;
 			this.radioButtonClick.emit({checkedButton: this.radioButtons[index], index});

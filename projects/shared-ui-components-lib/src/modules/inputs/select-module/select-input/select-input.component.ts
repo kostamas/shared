@@ -8,7 +8,7 @@ import {IModal, IModalConfig} from '../../../../types/modal';
 import {ISelectItem, IValidationStatus} from '../../../../types/ISelect';
 import {ISvgIcons, SVG_ICONS} from '../../../svg-icon-module/svg-icons.const';
 import {Subject} from 'rxjs';
-import {isDefined} from '../../../../utils/jsUtils';
+import {JsUtils} from '../../../../utils/jsUtils';
 import {OPTIONS_TYPES, OPTIONS_TYPES_COMPONENTS} from '../../../../constants/select-input.constant';
 import {SelectInputService} from '../../../../services/select-input.service';
 
@@ -105,7 +105,7 @@ export class SelectInputComponent implements OnInit, OnChanges, OnDestroy {
       this.filteredOptions = this.selectList;
     }
 
-    this.isSingleSelection = isDefined(this.componentInputs.isSingleSelecton) ? this.componentInputs.isSingleSelection : false;
+    this.isSingleSelection = JsUtils.isDefined(this.componentInputs.isSingleSelecton) ? this.componentInputs.isSingleSelection : false;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

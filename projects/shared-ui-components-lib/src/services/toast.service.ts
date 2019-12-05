@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 import {IToastConfig} from '../types/toast';
 import {ToastComponent} from '../modules/toast-module/toast/toast.component';
-import {generateId} from '../utils/jsUtils';
+import {JsUtils} from '../utils/jsUtils';
 
 @Injectable({
 	providedIn: 'root'
@@ -16,7 +16,7 @@ export class ToastService {
 	}
 
 	showToastMessage(config: IToastConfig): any {
-		const toastId = generateId();
+		const toastId = JsUtils.generateId();
 		const componentRef = this.componentFactoryResolver
 			.resolveComponentFactory(ToastComponent)
 			.create(this.injector);

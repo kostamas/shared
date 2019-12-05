@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ISelectItem} from '../types/ISelect';
-import {isDefined} from '../utils/jsUtils';
+import {JsUtils} from '../utils/jsUtils';
 import {IRadioButton} from '../types/buttons';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class SelectInputService {
 			names = Array.isArray(names) ? names : [names];
 			(optionList as any[]).forEach(option => option.isSelected = names.indexOf(option.name) > -1);
 		}
-		if (isDefined(ids)) {
+		if (JsUtils.isDefined(ids)) {
 			ids = Array.isArray(ids) ? ids : [ids];
 			(optionList as any[]).forEach(option => option.isSelected = ids.indexOf(option.id) > -1);
 		}
@@ -40,7 +40,7 @@ export class SelectInputService {
 				result = selectInputList.filter((option: ISelectItem) => names.indexOf(option.name) > -1)[0];
 			}
 		}
-		if (isDefined(ids)) {
+		if (JsUtils.isDefined(ids)) {
 			ids = Array.isArray(ids) ? ids : [ids];
 			if (getAllSelectedItems) {
 				result = selectInputList.filter((option: ISelectItem) => ids.indexOf(option.id) > -1);
@@ -56,7 +56,7 @@ export class SelectInputService {
 			names = Array.isArray(names) ? names : [names];
 			optionList = optionList.filter(option => names.indexOf(option.name) < 0);
 		}
-		if (isDefined(ids)) {
+		if (JsUtils.isDefined(ids)) {
 			ids = Array.isArray(ids) ? ids : [ids];
 			optionList = optionList.filter(option => ids.indexOf(option.id) < 0);
 		}
@@ -74,7 +74,7 @@ export class SelectInputService {
 			itemsToCheck = Array.isArray(names) ? names : [names];
 			searchBy = 'name';
 		}
-		if (isDefined(ids)) {
+		if (JsUtils.isDefined(ids)) {
 			itemsToCheck = Array.isArray(ids) ? ids : [ids];
 			searchBy = 'id';
 		}

@@ -6,7 +6,7 @@ import {MultiSelectColorfulOptionsComponent} from '../../select-module/options/m
 import {ISelectItem} from '../../../../types/ISelect';
 import {Subject} from 'rxjs';
 import {ISelectInputConfig, ISevenDaysInput} from '../../../../types/seven-days-input';
-import {capitalize, isDefined} from '../../../../utils/jsUtils';
+import {JsUtils} from '../../../../utils/jsUtils';
 
 @Component({
 	selector: 'app-seven-days-input',
@@ -48,7 +48,7 @@ export class SevenDaysInputComponent implements OnInit, OnDestroy, OnChanges {
 		}
 		this.sevenDaysKeys = Object.keys(this.sevenDaysMainList);
 		this.initializeSelectInput();
-		this.isSingleSelection = isDefined(this.selectInputConfig && this.selectInputConfig.isSingleSelection) ? this.selectInputConfig.isSingleSelection : true;
+		this.isSingleSelection = JsUtils.isDefined(this.selectInputConfig && this.selectInputConfig.isSingleSelection) ? this.selectInputConfig.isSingleSelection : true;
 		this.componentInputs = {
 			headerButtons: this.multiSelectInputs,
 			isSingleSelection: this.isSingleSelection,
@@ -161,7 +161,7 @@ export class SevenDaysInputComponent implements OnInit, OnDestroy, OnChanges {
 		Object.keys(this.sevenDaysMainList).forEach((day, ind) => {
 			if (this.sevenDaysMainList[day]) {
 				selectedIndex.push(ind);
-				day = capitalize(day);
+				day = JsUtils.capitalize(day);
 				text += (text ? ' ,' + day : day);
 			}
 		});

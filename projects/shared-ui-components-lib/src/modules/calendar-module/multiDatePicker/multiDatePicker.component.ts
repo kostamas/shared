@@ -7,7 +7,7 @@ import {CalendarDatePickerService} from '../../../services/calendarDatePicker.se
 import {SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AbstractControl} from '@angular/forms';
-import {isEmpty} from '../../../utils/jsUtils';
+import {JsUtils} from '../../../utils/jsUtils';
 
 import {ICalendarClickPosition, IFromTo} from '../../../types/calendar';
 import {DATE_FORMAT} from '../../../constants/shared.constant';
@@ -176,7 +176,7 @@ export class MultiDatePickerComponent implements OnInit, OnDestroy {
 		const {from, to} = this.formGroup.controls;
 		const {firstDate, lastDate} = this.calendarDatePickerService.getSelectedRange();
 
-		if (!isEmpty(from.errors) || !isEmpty(to.errors) || !from.value || !to.value) {
+		if (!JsUtils.isEmpty(from.errors) || !JsUtils.isEmpty(to.errors) || !from.value || !to.value) {
 			return;
 		}
 
@@ -225,7 +225,7 @@ export class MultiDatePickerComponent implements OnInit, OnDestroy {
 			if (toError && toError['wrong-range']) {
 				delete toError['wrong-range'];
 			}
-			if (isEmpty(this.formGroup.controls['to'].errors)) {
+			if (JsUtils.isEmpty(this.formGroup.controls['to'].errors)) {
 				toError = null;
 			}
 			this.formGroup.controls['to'].setErrors(toError);

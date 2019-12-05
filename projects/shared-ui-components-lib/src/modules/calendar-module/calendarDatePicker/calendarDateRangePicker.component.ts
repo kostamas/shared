@@ -6,7 +6,7 @@ import * as momentNs from 'moment';
 const moment = momentNs;
 import {filter, switchMap, takeUntil, tap} from 'rxjs/operators';
 import {CalendarDatePickerService} from '../../../services/calendarDatePicker.service';
-import {isDefineAndNotNull} from '../../../utils/jsUtils';
+import {JsUtils} from '../../../utils/jsUtils';
 import {ISvgIcons, SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 import {ICalendarClickPosition, ICalendarDay, IFromTo} from '../../../types/calendar';
 import {DATE_FORMAT} from '../../../constants/shared.constant';
@@ -101,7 +101,7 @@ export class CalendarDateRangePickerComponent implements OnInit, OnDestroy, OnCh
 		this.calendarDatePickerService.selectDate$
 			.pipe(
 				takeUntil(this.unSubscribe$),
-				filter(date => isDefineAndNotNull(date))
+				filter(date => JsUtils.isDefineAndNotNull(date))
 			)
 			.subscribe(selectedDate => setTimeout(() => {
 				if (selectedDate) {

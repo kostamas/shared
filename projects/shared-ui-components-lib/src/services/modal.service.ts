@@ -1,5 +1,5 @@
 import {ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, Injector} from '@angular/core';
-import {generateId} from '../utils/jsUtils';
+import {JsUtils} from '../utils/jsUtils';
 import {IModal, IModalConfig} from '../types/modal';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class ModalService {
 	}
 
 	appendComponentToBody(component: any, modalConfig?: IModalConfig, data?: any, inputs?: any, outputs?: any): any {
-		const id = generateId();
+		const id = JsUtils.generateId();
 		const modal: any = {id};
 
 		modalConfig = !!modalConfig ? modalConfig : {};
