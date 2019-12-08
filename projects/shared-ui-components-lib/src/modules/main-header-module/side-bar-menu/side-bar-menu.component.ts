@@ -106,7 +106,7 @@ export class SideBarMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 		return this.hasFavoritesInList ? filePath + 'ico_favorites_on_peq.png' : filePath + 'ico_favorites_peq.png';
 	}
 
-	@HostListener('window:resize')
+	@HostListener('window:resize', ['$event'])
 	onResize(event: any): void {
 		if (this.mainHeaderService && this.mainHeaderService.mainHeaderConfig && this.mainHeaderService.mainHeaderConfig.calcSideBarClass) {
 			this.sideBarClass = this.mainHeaderService.mainHeaderConfig.calcSideBarClass(event);
