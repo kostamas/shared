@@ -107,7 +107,7 @@ export class JsUtils {
   static capitalize = (str): string => str.charAt(0).toUpperCase() + str.slice(1)
 
   static arrayToObject = (array: any[], id: any, withCollisions?: boolean) => {
-    array.reduce((obj, item) => {
+     return array.reduce((obj, item) => {
       if (withCollisions) {
         if (!obj[item[id]]) {
           obj[item[id]] = [item];
