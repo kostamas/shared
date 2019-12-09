@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {PopupService} from '../../services/popup.service';
+import {PopupService} from './popup.service';
 import {PopupComponent} from './popup/popup.component';
 import {ModalModule} from '../modal-module/modal.module';
 import { CommonModule } from '@angular/common';

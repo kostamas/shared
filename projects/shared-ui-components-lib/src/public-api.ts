@@ -23,8 +23,8 @@ export * from './modules/main-header-module/main-header.module';
 export * from './pipes/pipesModule.module';
 
 /* --- Services --- */
-export * from './services/popup.service';
-export * from './services/modal.service';
+export * from './modules/popup-module/popup.service';
+export * from './modules/modal-module/modal.service';
 export * from './services/main-header.service';
 export * from './services/analytics.service';
 export * from './services/audit.service';

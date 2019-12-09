@@ -1,6 +1,6 @@
 import {ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, Injector} from '@angular/core';
-import {JsUtils} from '../utils/jsUtils';
-import {IModal, IModalConfig} from '../types/modal';
+import {JsUtils} from '../../utils/jsUtils';
+import {IModal, IModalConfig} from '../../types/modal';
 
 @Injectable({
 	providedIn: 'root'

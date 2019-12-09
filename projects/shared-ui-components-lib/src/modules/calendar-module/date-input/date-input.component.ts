@@ -18,7 +18,7 @@ const moment = momentNs;
 import {IValidationStatus} from '../../../types/ISelect';
 import {Subject} from 'rxjs';
 import {IModal, IModalConfig} from '../../../types/modal';
-import {ModalService} from '../../../services/modal.service';
+import {ModalService} from '../../modal-module/modal.service';
 import {MultiDatePickerWrapperComponent} from '../multi-date-picker-wrapper/multi-date-picker-wrapper.component';
 import {CalendarDateRangePickerComponent} from '../calendarDatePicker/calendarDateRangePicker.component';
 import {DATE_FORMAT} from '../../../constants/shared.constant';

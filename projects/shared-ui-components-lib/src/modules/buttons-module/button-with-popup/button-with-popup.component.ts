@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {IPopupData} from '../../../types/modal';
-import {PopupService} from '../../../services/popup.service';
+import {PopupService} from '../../popup-module/popup.service';
 import {IButtonWithPopupConfig} from '../../../types/buttons';
 import {ISvgIcons, SVG_ICONS} from '../../svg-icon-module/svg-icons.const';
 

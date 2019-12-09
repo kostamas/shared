@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {FavoritesService} from '../../../../../services/favorites.service';
 import {MainHeaderService} from '../../../../../services/main-header.service';
-import {ModalService} from '../../../../../services/modal.service';
+import {ModalService} from '../../../../modal-module/modal.service';
 import {IModal} from '../../../../../types/modal';
 import {SVG_ICONS} from '../../../../svg-icon-module/svg-icons.const';
 import {IMenuLink} from '../../../../../types/MenuLink';

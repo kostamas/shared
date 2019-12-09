@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {PopupService} from './popup.service';
+import {PopupService} from '../modules/popup-module/popup.service';
 import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {IPopupData} from '../types/modal';

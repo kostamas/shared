@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {ModalService} from './modal.service';
-import {PopupComponent} from '../modules/popup-module/popup/popup.component';
-import {IModalConfig, IPopupData} from '../types/modal';
+import {ModalService} from '../modal-module/modal.service';
+import {PopupComponent} from './popup/popup.component';
+import {ErrorPopupComponent} from './error-popup/error-popup.component';
+import {IModalConfig, IPopupData} from '../../types/modal';
 
 @Injectable({
 	providedIn: 'root'
@@ -20,7 +21,7 @@ export class PopupService {
 
 	showError(popupData: IPopupData, modalConfig: IModalConfig = {}): any {
 		modalConfig = Object.assign(this.modalConfig, modalConfig);
-		return this.modalService.open(PopupComponent, modalConfig, {...popupData, type: 'error'});
+		return this.modalService.open(ErrorPopupComponent, modalConfig, {...popupData, type: 'error'});
 	}
 
 	showWarning(popupData: IPopupData, modalConfig?: IModalConfig): any {

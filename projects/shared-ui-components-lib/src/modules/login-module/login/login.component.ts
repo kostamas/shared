@@ -4,7 +4,7 @@ import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
 import {IPopupData} from '../../../types/modal';
 import {CommonService} from '../../../services/common.service';
-import {PopupService} from '../../../services/popup.service';
+import {PopupService} from '../../popup-module/popup.service';
 
 export const AppService = new InjectionToken<any>(null);
 

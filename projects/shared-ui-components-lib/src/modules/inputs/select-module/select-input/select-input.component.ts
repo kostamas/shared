@@ -3,7 +3,7 @@ import {
   Component, ComponentFactoryResolver, ElementRef, EventEmitter, HostListener, Injector, Input, NgZone, OnChanges,
   OnDestroy, OnInit, Output, SimpleChanges, ViewChild, ViewContainerRef, ViewEncapsulation
 } from '@angular/core';
-import {ModalService} from '../../../../services/modal.service';
+import {ModalService} from '../../../modal-module/modal.service';
 import {IModal, IModalConfig} from '../../../../types/modal';
 import {ISelectItem, IValidationStatus} from '../../../../types/ISelect';
 import {ISvgIcons, SVG_ICONS} from '../../../svg-icon-module/svg-icons.const';
