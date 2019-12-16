@@ -39,8 +39,8 @@ export interface ISvgIcons {
 	technicalErrorTriangle: string;
 	downloadIcon: string;
 	publish: string;
-	publish_x: string;
-	publish_checkMark: string;
+  fail: string;
+  success: string;
   pencil: string;
 }
 
@@ -85,7 +85,7 @@ export const SVG_ICONS: ISvgIcons = {
 	technicalErrorTriangle: 'technicalErrorTriangle',
 	downloadIcon: 'downloadIcon',
 	publish: 'publish',
-	publish_x: 'publish_x',
-	publish_checkMark: 'publish_checkMark',
-  pencil: 'publish_checkMark',
+  fail: 'fail',
+  success: 'success',
+  pencil: 'pencil',
 };
