@@ -35,6 +35,7 @@ export class MultiDatePickerComponent implements OnInit, OnDestroy {
 	@Input('disabledRanges') disabledRanges: IFromTo[];
 	@Input('config') config?: any;
 	@Input('allowPastDates') allowPastDates: boolean;
+	@Input('detectChangesManually') detectChangesManually: boolean;
 
 	@Output('onSelectRange') onSelectRange: EventEmitter<any> = new EventEmitter();
 

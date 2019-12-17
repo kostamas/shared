@@ -47,6 +47,7 @@ export class DateInputComponent implements OnInit, OnChanges {
 	@Input('validationStatus$') validationStatus$: Subject<IValidationStatus>;
 	@Input('openInModal') openInModal: boolean = false;
 	@Input('allowPastDates') allowPastDates: boolean = false;
+  @Input('detectChangesManually') detectChangesManually: boolean = false;
 
 	@ViewChild('dateInputElement') dateInputElement: ElementRef;
 	@ViewChild('calendarWrapperElement') calendarWrapperElement: ElementRef;

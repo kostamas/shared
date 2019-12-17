@@ -16,6 +16,7 @@ export class MultiDatePickerWrapperComponent implements OnInit {
 	@Input('disabledRanges') disabledRanges: IFromTo[];
 	@Input('isSelectToMode') isSelectToMode: boolean;
 	@Input('allowPastDates') allowPastDates: boolean;
+  @Input('detectChangesManually') detectChangesManually: boolean = false;
 
 	@Output('rangeSelected') rangeSelected: EventEmitter<string> = new EventEmitter<string>();
 

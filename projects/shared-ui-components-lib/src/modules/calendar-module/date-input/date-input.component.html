@@ -35,7 +35,8 @@
 	<div class="calendar-wrapper" #calendarWrapperElement>
 		<app-calendar-date-range-picker
 			*ngIf="isOpen && !multiDatePicker && !openInModal"
-			[allowPastDates]="allowPastDates"
+      [detectChangesManually]="detectChangesManually"
+      [allowPastDates]="allowPastDates"
 			[isSingleSelection]="true"
 			[dateFormat]="dateFormat"
 			[date]="selectedDate"
@@ -44,7 +45,8 @@
 
 		<app-multi-date-picker-wrapper
 			*ngIf="isOpen && multiDatePicker && !openInModal"
-			[allowPastDates]="allowPastDates"
+      [detectChangesManually]="detectChangesManually"
+      [allowPastDates]="allowPastDates"
 			[selectedRange]="selectedDate"
 			(rangeSelected)="onSelectRange($event)">
 		</app-multi-date-picker-wrapper>
