@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import {SvgIconModule} from '../svg-icon-module/svg-icon.module';
 import {ButtonsModule} from '../buttons-module/buttons.module';
 import {ErrorPopupComponent} from './error-popup/error-popup.component';
+import {InformationPopupComponent} from './information-popup/information-popup.component';
 
 @NgModule({
 	imports: [
@@ -16,12 +17,17 @@ import {ErrorPopupComponent} from './error-popup/error-popup.component';
 	],
   declarations: [
     PopupComponent,
-    ErrorPopupComponent
+    ErrorPopupComponent,
+    InformationPopupComponent
   ],
   providers: [
     PopupService
   ],
-  entryComponents: [PopupComponent, ErrorPopupComponent]
+  entryComponents: [
+    PopupComponent,
+    ErrorPopupComponent,
+    InformationPopupComponent
+  ]
 })
 export class PopupModule {
 }

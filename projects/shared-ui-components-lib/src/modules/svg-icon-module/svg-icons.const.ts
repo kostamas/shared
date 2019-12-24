@@ -42,6 +42,7 @@ export interface ISvgIcons {
   fail: string;
   success: string;
   pencil: string;
+  exclamationMark: string;
 }
 
 export const SVG_ICONS: ISvgIcons = {
@@ -88,4 +89,5 @@ export const SVG_ICONS: ISvgIcons = {
   fail: 'fail',
   success: 'success',
   pencil: 'pencil',
+  exclamationMark: 'exclamationMark'
 };
